@@ -14,6 +14,7 @@
         <div>City: {{city}}</div> 
         <div>Company: {{company}}</div>
         <div>Hobby: {{hobby}}</div>
+        <div>Date: {{date}}</div>
     </div>
     <br>
     <div>
@@ -22,6 +23,8 @@
         <div>City: {{city|truncatechars:5}}</div> 
         <div>Company: {{company|lower|capfirst}}</div>
         <div>Hobby: {{hobby|capfirst}}</div>
+        <div>Date: {{date|date:"D d M Y"}}</div>
+        <div>Date: {{date|time:"H:i"}}</div>
     </div>
 </body>
 </html>
