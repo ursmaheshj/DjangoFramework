@@ -23,3 +23,6 @@ def if_for(request):
         'names' : ['ramesh','mahesh','umesh','suresh']
     }
     return render(request,'app1/iffor.html',context=context)
+
+def appleveltemplate(request):
+    return render(request,'app1/appleveltemplate.html')
