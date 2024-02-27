@@ -19,6 +19,6 @@ def template_testing(request):
 def if_for(request):
     context = {
         'name' : 'Mahesh',
-        'digit' : 9,
+        'digit' : 0,
     }
     return render(request,'app1/iffor.html',context=context)

@@ -1,3 +1,4 @@
+{% load mytags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,10 +31,10 @@
      <div>
         <h5> Custom Filter</h5>
         <div>digit:{{digit}}</div>
-         {% if digit|divisibleby:2 %}
-         <b>Divisible by 2</b>
+         {% if digit|modulo:2 == 0 %}
+         <b>Even</b>
          {% else %}
-         <b>Not divisible by 2</b>
+         <b>Odd</b>
          {% endif %}
      </div>
 </body>
