@@ -19,9 +19,6 @@ def template_testing(request):
 def if_for(request):
     context = {
         'name' : 'Mahesh',
-        'city' : 'Himayatnagar',
-        'company' : 'TCS',
-        'hobby' : 'table-tennis',
-        'date' : datetime.now(),
+        'digit' : 9,
     }
     return render(request,'app1/iffor.html',context=context)

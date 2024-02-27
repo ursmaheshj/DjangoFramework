@@ -7,6 +7,9 @@
 </head>
 <body>
     <div>
+       <h5> If, Elif and Else 1</h5>
+       <div>name:{{name}}</div>
+
         {% if name|length > 5 %}
         <b>if:{{name}}</b>
         {% elif name|length < 1 %}
@@ -15,5 +18,23 @@
         <b>else:Nothing</b>
         {% endif %}
     </div>
+    <div>
+        <h5> If, Elif and Else 2</h5>
+        <div>digit:{{digit}}</div>
+         {% if digit|divisibleby:2 %}
+         <b>Divisible by 2</b>
+         {% else %}
+         <b>Not divisible by 2</b>
+         {% endif %}
+     </div>
+     <div>
+        <h5> Custom Filter</h5>
+        <div>digit:{{digit}}</div>
+         {% if digit|divisibleby:2 %}
+         <b>Divisible by 2</b>
+         {% else %}
+         <b>Not divisible by 2</b>
+         {% endif %}
+     </div>
 </body>
 </html>
