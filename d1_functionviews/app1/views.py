@@ -11,5 +11,6 @@ def template_testing(request):
         'name' : 'Mahesh',
         'city' : 'Himayatnagar',
         'company' : 'TCS',
+        'hobby' : 'table-tennis'
     }
     return render(request,'app1/index.html',context=context)

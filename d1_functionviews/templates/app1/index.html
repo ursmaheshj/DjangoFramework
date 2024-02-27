@@ -9,7 +9,19 @@
     <h3>Template testing</h3>
 
     <div>
-        I am {{name}}, live in {{city}} and work at {{company}}
+        <div><b>Actual Data</b></div>
+        <div>Name: {{name}}</div>
+        <div>City: {{city}}</div> 
+        <div>Company: {{company}}</div>
+        <div>Hobby: {{hobby}}</div>
+    </div>
+    <br>
+    <div>
+        <div><b>Filtering</b></div>
+        <div>Name: {{name|upper}}</div>
+        <div>City: {{city|truncatechars:5}}</div> 
+        <div>Company: {{company|lower|capfirst}}</div>
+        <div>Hobby: {{hobby|capfirst}}</div>
     </div>
 </body>
 </html>
