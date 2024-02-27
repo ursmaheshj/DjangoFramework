@@ -8,34 +8,48 @@
 </head>
 <body>
     <div>
-       <h5> If, Elif and Else 1</h5>
+       <h3> If, Elif and Else 1</h3>
        <div>name:{{name}}</div>
 
         {% if name|length > 5 %}
-        <b>if:{{name}}</b>
+        <div>if:{{name}}</div>
         {% elif name|length < 1 %}
-        <b>elif:next condition</b>
+        <div>elif:next condition</div>
         {% else %}
-        <b>else:Nothing</b>
+        <div>else:Nothing</div>
         {% endif %}
     </div>
     <div>
-        <h5> If, Elif and Else 2</h5>
         <div>digit:{{digit}}</div>
+
          {% if digit|divisibleby:2 %}
-         <b>Divisible by 2</b>
+         <div>Divisible by 2</div>
          {% else %}
-         <b>Not divisible by 2</b>
+         <div>Not divisible by 2</div>
          {% endif %}
      </div>
+     
+     <h3> Custom Filter</h3>
      <div>
-        <h5> Custom Filter</h5>
         <div>digit:{{digit}}</div>
          {% if digit|modulo:2 == 0 %}
-         <b>Even</b>
+         <bdiv>Even</bdiv>
          {% else %}
-         <b>Odd</b>
+         <bdiv>Odd</bdiv>
          {% endif %}
+     </div>
+     <h3>For loop</h3>
+     <div>
+        <div>
+            <div>ActualData:{{names}}</div>
+            {% for name in names %}
+            {% comment %} <div>{{forloop.revcounter}} {{name}}</div> reverse indexing{% endcomment %}
+            {% comment %} <div>{{forloop.counter0}} {{name}}</div> start with 0{% endcomment %}
+            {% comment %} <div>{{forloop.counter}} {{name}}</div> start with one {% endcomment %}
+            {% comment %} <div>{{forloop.first}} {{name}}</div> {% endcomment %}
+            {% comment %} <div>{{forloop.last}} {{name}}</div> {% endcomment %}
+            {% endfor %}
+        </div>
      </div>
 </body>
 </html>

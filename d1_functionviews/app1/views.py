@@ -20,5 +20,6 @@ def if_for(request):
     context = {
         'name' : 'Mahesh',
         'digit' : 0,
+        'names' : ['ramesh','mahesh','umesh','suresh']
     }
     return render(request,'app1/iffor.html',context=context)
