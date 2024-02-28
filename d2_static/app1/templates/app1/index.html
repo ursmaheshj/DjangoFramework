@@ -2,6 +2,8 @@
 
 
 {% block index %}
+{{block.super}} ## to include the content from base block too
+<br>
 Inside Block of index
 {% endblock index %}
 
