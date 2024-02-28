@@ -21,8 +21,8 @@ from app1.views import home,base,index,about
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', home),
+    path('home/', home,name='home'),
     path('base/', base),
-    path('index/', index),
-    path('about/', about),
+    path('index/', index,name='index'),
+    path('about/', about,name='about'),
 ]
