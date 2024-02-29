@@ -6,7 +6,7 @@ def home(request):
     return render(request,'app1/home.html')
 
 def index(request):
-    return render(request,'app1/index.html')
+    return render(request,'app1/index.html',{'d':'Django'})
 
 def about(request):
     return render(request,'app1/about.html')

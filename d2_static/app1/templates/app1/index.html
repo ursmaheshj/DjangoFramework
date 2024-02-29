@@ -5,8 +5,9 @@
 {{block.super}}  {% comment %} to include the content from base block too {% endcomment %}
 <br>
 <h1> Inside Block of index </h1>
+<p>{{d}} Learning course</p>
 
 <br>
-{% include "./topcourses.html" with p="PHP" %}
+{% include "./topcourses.html" with p="PHP" only %}
 {% endblock content %}
 
