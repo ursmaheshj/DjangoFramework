@@ -10,15 +10,22 @@
     <title>Base</title>
 </head>
 <body>
-    Navbar:
+    
     <br>
-    <a href="{% url "index" %}">index</a>
-    <a href="{% url "about" %}">about</a>
+    <nav>
+        <a href="{% url "index" %}">index</a>
+        <a href="{% url "about" %}">about</a>
+    </nav>
+    
     <br>
     {% block content %}
     <h1>Inside Base block</h1>
     {% endblock content %}
+
     <br>
-    Footer
+    <footer>
+        Footer
+    </footer>
+    
 </body>
 </html>
