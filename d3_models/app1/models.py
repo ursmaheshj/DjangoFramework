@@ -7,6 +7,9 @@ class Student(models.Model):
     division = models.CharField(max_length=10)
     about = models.TextField()
 
+    def __str__(self) -> str:
+        return self.name
+
 class Teacher(models.Model):
     teacher_code = models.IntegerField(primary_key=True)
     name = models.CharField(max_length = 20)
