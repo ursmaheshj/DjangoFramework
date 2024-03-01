@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model creation and retrieving data</title>
+</head>
+<body>
+    <h5>With dict</h5>
+   <ol>
+    {% for item in students %}
+    <ul>{{item.name}}</ul>
+    {% endfor %}
+   </ol> 
+   <h5>Without dict</h5>
+   <ol>
+    
+    <ul>{{students}}</ul>
+   
+</body>
+</html>
