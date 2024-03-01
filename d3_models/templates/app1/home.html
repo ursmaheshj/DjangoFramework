@@ -12,10 +12,23 @@
     <ul>{{item.name}}</ul>
     {% endfor %}
    </ol> 
-   <h5>Without dict</h5>
-   <ol>
+
+   <h5>With table</h5>
+   <table>
+    <tr>
+        <th>Name</th>
+        <th>Division</th>
+        <th>About</th>
+    </tr>
     
-    <ul>{{students}}</ul>
+    {% for items in students %}
+        <tr>
+            <td>{{items.name}}</td>
+            <td>{{items.division}}</td>
+            <td>{{items.about}}</td>
+        </tr>
+    {% endfor %}
+   </table>
    
 </body>
 </html>
