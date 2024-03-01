@@ -6,7 +6,6 @@ class Student(models.Model):
     name = models.CharField(max_length = 20)
     division = models.CharField(max_length=10)
     about = models.TextField()
-    roll = models.IntegerField()
 
 class Teacher(models.Model):
     teacher_code = models.IntegerField(primary_key=True)
