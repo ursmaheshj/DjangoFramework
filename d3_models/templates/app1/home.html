@@ -6,14 +6,12 @@
     <title>Model creation and retrieving data</title>
 </head>
 <body>
-    <h5>With dict</h5>
-   <ol>
-    {% for item in students %}
-    <ul>{{item.name}}</ul>
-    {% endfor %}
-   </ol> 
+    <h5>Single item</h5>
+    <div>
+        {{student.name}} {{student.division}} {{student.about}}
+    </div> 
 
-   <h5>With table</h5>
+   <h5>All queryset items With table</h5>
    <table>
     <tr>
         <th>Name</th>

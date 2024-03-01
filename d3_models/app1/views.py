@@ -6,7 +6,8 @@ from app1.models import Student
 
 def home(request):
     students = Student.objects.all()
-    student = Student.objects.first()
+    pk=1
+    student = Student.objects.get(id=pk)
     context = {
         'students':students,
         'student':student
