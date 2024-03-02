@@ -9,7 +9,11 @@
     <h3>Demo of Forms</h3>
 
     <form action="" target"">
-        {{studentform}}
+        {% comment %} {{studentform.as_table}} {% endcomment %}
+        {{studentform.as_p}}
+        {% comment %} {{studentform.as_ul}} {% endcomment %}
+        {% comment %} {{studentform.name}} {% endcomment %}
+        
         <button type="submit">Submit</button>
     </form>
     
