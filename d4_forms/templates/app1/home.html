@@ -16,6 +16,22 @@
         
         <button type="submit">Submit</button>
     </form>
+
+    <h5>Rendering form fields manually</h5>
+
+    <form action="">
+        <div>
+            {{studentform.name.label_tag}}
+            {{studentform.name}}
+        </div>
+        <div>
+            {{studentform.name.label}} <br>
+            {{studentform.name.value}} <br>
+            {{studentform.name.html_name}} <br>
+            {{studentform.name.help_text}} <br>
+            {{studentform.name.field.required}} <br>
+        </div>
+    </form>
     
     
 </body>
