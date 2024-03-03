@@ -17,7 +17,7 @@
         <button type="submit">Submit</button>
     </form>
 
-    <h5>Rendering form fields manually</h5>
+    <h3>Rendering form fields manually</h3>
 
     <form action="">
         <div>
@@ -31,6 +31,20 @@
             {{studentform.name.help_text}} <br>
             {{studentform.name.field.required}} <br>
         </div>
+    </form>
+
+    <h3>Using for loop to show fields</h3>
+    <form action="">
+        {% comment %} {% for field in studentform %}
+            {{field.label_tag}}
+            {{field}}
+            <br>
+        {% endfor %} {% endcomment %}
+        {% for field in studentform.visible_fields %} {% comment %} To show only visible fields  {% endcomment %}
+            {{field.label_tag}}
+            {{field}}
+            <br>
+        {% endfor %}
     </form>
     
     

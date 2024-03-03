@@ -5,3 +5,4 @@ class StudentForm(forms.Form):
     div = forms.CharField()
     code = forms.IntegerField()
     about = forms.CharField(widget=forms.Textarea)
+    key = forms.CharField(widget=forms.HiddenInput())
