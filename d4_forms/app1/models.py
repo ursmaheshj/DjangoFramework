@@ -7,3 +7,5 @@ class Student(models.Model):
     code = models.IntegerField()
     about = models.TextField()
 
+
+
