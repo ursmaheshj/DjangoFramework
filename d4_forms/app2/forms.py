@@ -1,3 +1,4 @@
+from typing import Any
 from django import forms
 
 class RegisterForm(forms.Form):
@@ -5,6 +6,13 @@ class RegisterForm(forms.Form):
     roll = forms.IntegerField()
     email = forms.EmailField()
     subject = forms.CharField()
+    def clean_name(self):
+        data = self.cleaned_data["name"]
+        if len(data)<4:
+            raise forms.ValidationError('Length is less than 4')
+        return data
+    
+    
 
 class FieldDemoForm(forms.Form):
     charfield = forms.CharField(min_length=5,max_length=10,
