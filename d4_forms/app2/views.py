@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from app2.forms import RegisterForm
+from app2.forms import RegisterForm,FieldDemoForm
 
 # Create your views here.
 def RegisterView(request):
@@ -10,4 +10,5 @@ def RegisterView(request):
             print(registerform.cleaned_data)
     else:
         registerform = RegisterForm()
-    return render(request,'app2/form.html',{'registerform':registerform})
+    fielddemoform = FieldDemoForm()
+    return render(request,'app2/form.html',{'registerform':registerform,'fielddemoform':fielddemoform})

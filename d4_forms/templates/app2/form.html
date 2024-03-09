@@ -12,5 +12,11 @@
         {{registerform.as_p}}
         <button type="submit">Submit</button>
     </form>
+    <h3>Field Demo Form</h3>
+    <form action="" method="">
+        {% csrf_token %}
+        {{fielddemoform.as_p}}
+        {% comment %} <button type="submit">Submit</button> {% endcomment %}
+    </form>
 </body>
 </html>
