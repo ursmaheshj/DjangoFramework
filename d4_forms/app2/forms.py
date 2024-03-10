@@ -6,13 +6,19 @@ class RegisterForm(forms.Form):
     roll = forms.IntegerField()
     email = forms.EmailField()
     subject = forms.CharField()
-    def clean_name(self):
-        data = self.cleaned_data["name"]
-        if len(data)<4:
-            raise forms.ValidationError('Length is less than 4')
-        return data
-    
-    
+    # def clean_name(self):
+    #     data = self.cleaned_data["name"]
+    #     if len(data)<4:
+    #         raise forms.ValidationError('Length is less than 4')
+    #     return data
+    def clean(self):
+        cleaned_data = super().clean()
+        valname = cleaned_data['name']
+        if valname[0]!="M":
+            raise forms.ValidationError('Name should start with M')
+        valemail = cleaned_data['email']
+        if valemail[-10:]!='@gmail.com':
+            raise forms.ValidationError('Email should be gmail.com')
 
 class FieldDemoForm(forms.Form):
     charfield = forms.CharField(min_length=5,max_length=10,
