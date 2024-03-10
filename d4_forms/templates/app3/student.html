@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Built in and custom validation</title>
+</head>
+<body>
+    <h3>Sending form data with post</h3>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{studentform.as_p}}
+        <button type="submit">Submit</button>
+    </form>
+    
+</body>
+</html>
