@@ -5,7 +5,7 @@ def StudentView(request):
     if request.method == "POST":
         studentform = StudentForm(request.POST)
         if studentform.is_valid():
-            print(studentform)
+            # print(studentform)
             print(studentform.cleaned_data)
     else:
         studentform = StudentForm()

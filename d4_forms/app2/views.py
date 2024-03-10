@@ -6,7 +6,7 @@ def RegisterView(request):
     if request.method == "POST":
         registerform = RegisterForm(request.POST)
         if registerform.is_valid():
-            print(registerform)
+            # print(registerform)
             print(registerform.cleaned_data)
     else:
         registerform = RegisterForm()

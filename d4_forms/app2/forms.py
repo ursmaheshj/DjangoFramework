@@ -3,19 +3,19 @@ from django import forms
 class RegisterForm(forms.Form):
     name = forms.CharField()
     roll = forms.IntegerField()
-    email = forms.EmailField()
+    emailfield = forms.EmailField()
     subject = forms.CharField()
     # def clean_name(self):
-    #     data = self.cleaned_data["name"]
+    #     data = self.cleaned_data.get("name")
     #     if len(data)<4:
     #         raise forms.ValidationError('Length is less than 4')
     #     return data
     def clean(self):
         cleaned_data = super().clean()
-        valname = cleaned_data['name']
+        valname = self.cleaned_data['name']
         if valname[0]!="M":
             raise forms.ValidationError('Name should start with M')
-        valemail = cleaned_data['email']
+        valemail = self.cleaned_data['emailfield']
         if valemail[-10:]!='@gmail.com':
             raise forms.ValidationError('Email should be gmail.com')
 
