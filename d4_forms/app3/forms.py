@@ -6,6 +6,8 @@ def check_email_domain(value):
         raise forms.ValidationError('Incorrect Domain')
 
 class StudentForm(forms.Form):
+    error_css_class = 'E_error'
+    required_css_class = 'E_required'
     name = forms.CharField(validators=[validators.MaxLengthValidator(4)])
     email = forms.EmailField(validators=[check_email_domain])   
     password1 = forms.CharField(label="Password",widget=forms.PasswordInput)
