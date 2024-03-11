@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Built in and custom validation</title>
+    <style>
+        .errorlist{
+            color: red;
+            font-size: 15px;
+            margin: 9;
+            padding:0;
+        }
+    </style>
 </head>
 <body>
     <h3>Sending form data with post</h3>
@@ -12,7 +20,23 @@
         {% csrf_token %}
         {{studentform.as_p}}
         <button type="submit">Submit</button>
-    </form>
+    </form> 
+
+    <h3>Showing Form errors</h3>
+
+    <form action="" method="POST"> 
+        {% csrf_token %}
+        {% for field in studentform %}
+        <div>
+            {{field.label_tag}} {{field}} 
+            {% for error in field.errors %}
+                <span class='errorlist'>{{error}}</span>
+            {% endfor %}
+        </div>
+        {% endfor %}
+        {{studentform.non_field_errors}}
+        <button type="submit">Submit</button>
+    </form> 
     
 </body>
 </html>
