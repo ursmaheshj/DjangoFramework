@@ -2,6 +2,7 @@ from app1.models import User
 from django import forms
 
 class ModelUserForm(forms.ModelForm):
+    name = forms.CharField(max_length=10)
     class Meta:
         model = User
         fields = '__all__'
