@@ -12,7 +12,12 @@ def UserView(request):
             name = userform.cleaned_data['name']
             email = userform.cleaned_data['email']
             password = userform.cleaned_data['password']
-            user = User(name=name,email=email,password=password)
+            user = User(id=2,name=name,email=email,password=password)
+            
+            # user = User(id=2,name=name,email=email,password=password) #To update the specific record need to mention id of that record
+            # user = User(id=1)
+            # user.delete() # to delete specific record 
+            
             user.save()
         
     users = User.objects.all()
