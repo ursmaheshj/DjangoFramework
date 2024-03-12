@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app1.views import UserView
+from app2.views import ModelUserView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', UserView),
+    path('userform/',ModelUserView),
 ]
