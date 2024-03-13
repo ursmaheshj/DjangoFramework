@@ -1,10 +1,10 @@
 from django.shortcuts import render
 
 # Create your views here.
-def home(request):
-    return render(request,'app3/home.html')
+def home(request,check):
+    return render(request,'app3/home.html',{'check':check})
 
-def details(request,details_id):
+def details(request,details_id=1):
     context = {
         'page_info':'Details Page',
         'details':details_id
