@@ -18,3 +18,6 @@ def subdetails(request,details_id,subdetails_id):
         'subdetails':subdetails_id,
     }
     return render(request,'app3/details.html',context)
+
+def YearConverter(request,year):
+    return render(request,'app3/converter.html',{'year':year})
