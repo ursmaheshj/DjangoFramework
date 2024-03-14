@@ -9,11 +9,12 @@
 </head>
 <body>
     <div class='container mt-5'>
-        <h2 class='text-center alert alert-danger'>Function based CRUD project with ModelForm</h2>
-    </div>
+        <h3 class='text-center alert alert-danger'>Function based CRUD project with ModelForm</h3>
+  
+        {% block content %}
+        {% endblock content %}
 
-    {% block content %}
-    {% endblock content %}
+    </div>
 
     <script src="{% static "app/js/bootstrap.js" %}"></script>
     <script src="{% static "app/js/jquery.js" %}"></script>
