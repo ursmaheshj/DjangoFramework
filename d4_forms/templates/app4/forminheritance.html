@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModelForm inheritance Demo</title>
+</head>
+<body>
+    <div>
+        <h3>Student Form</h3>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{studentform.as_p}}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div>
+        <h3>Teacher Form</h3>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{teacherform.as_p}}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

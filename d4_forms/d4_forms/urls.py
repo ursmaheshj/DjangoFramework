@@ -20,10 +20,12 @@ from django.urls import path
 from app1.views import home
 from app2.views import RegisterView
 from app3.views import StudentView
+from app4.views import forminheritance
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', home),
     path('register/', RegisterView),
     path('student/', StudentView),
+    path('forminheritance/', forminheritance),
 ]
