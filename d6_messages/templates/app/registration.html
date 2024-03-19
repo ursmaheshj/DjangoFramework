@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Framework</title>
+</head>
+<body>
+    <form action="" method='POST'>
+        {% csrf_token %}
+        {{studentform.as_p}}
+        <button type="submit">Submit</button>
+    </form>
+    <div>
+        {% if messages %}
+            {% for message in messages %}
+                {{message}}
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>
