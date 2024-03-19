@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Message Framework</title>
+    <style>
+        .success{
+            color: blue;
+        }
+        .info{
+            color: orange;
+        }
+    </style>
 </head>
 <body>
     <form action="" method='POST'>
@@ -14,7 +22,9 @@
     <div>
         {% if messages %}
             {% for message in messages %}
-                {{message}}
+                <span {% if message.tags %} class='{{message.tags}}' {% endif %}>
+                    {{message}}
+                </span>
             {% endfor %}
         {% endif %}
     </div>

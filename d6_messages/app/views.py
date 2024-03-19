@@ -9,7 +9,8 @@ def registration(request):
         studentform = StudentForm(request.POST)
         if studentform.is_valid():
             studentform.save()
-            messages.add_message(request,messages.SUCCESS,'Student has been added')
+            messages.add_message(request,messages.SUCCESS,'Profile has been added.')
+            messages.info(request,'Now he can login!!!')
     else:
         studentform = StudentForm()
 
