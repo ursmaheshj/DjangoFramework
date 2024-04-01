@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm
+# from django.contrib.auth.forms import UserCreationForm
+from app1.forms import MyUserCreationForm as UserCreationForm
 
 # Create your views here.
 def sign_up(request):
