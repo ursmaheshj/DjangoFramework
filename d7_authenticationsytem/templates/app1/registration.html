@@ -11,7 +11,11 @@
     <div>
         <form action="" method='POST'>
             {% csrf_token %}
-            {{form.as_p}}
+            {% for field in form %}
+            <p>
+                {{field.label}} {{field}} {{field.errors|striptags}}
+            </p>
+            {% endfor %}
             <button type="submit">Submit</button>
         </form>
     </div>
