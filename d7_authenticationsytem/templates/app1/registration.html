@@ -17,6 +17,14 @@
             </p>
             {% endfor %}
             <button type="submit">Submit</button>
+
+            <div>
+                {% if messages %}
+                    {% for message in messages %}
+                            {{message}}
+                    {% endfor %}
+                {% endif %}
+            </div>
         </form>
     </div>
 
