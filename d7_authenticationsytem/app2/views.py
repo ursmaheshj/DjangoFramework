@@ -1,6 +1,7 @@
 from django.shortcuts import render,HttpResponseRedirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate,login,logout
+from django.contrib import messages
 
 
 # Create your views here.
@@ -13,6 +14,7 @@ def login_user(request):
             user = authenticate(username=uname,password=upass)
             if user is not None:
                 login(request,user)
+                messages.success(request,'User has been logged in!!!')
                 return HttpResponseRedirect('/profile/')
     else:
         fm = AuthenticationForm()
