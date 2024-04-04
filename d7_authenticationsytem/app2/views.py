@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponseRedirect
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.forms import AuthenticationForm,PasswordChangeForm,SetPasswordForm
+from django.contrib.auth import authenticate,login,logout,update_session_auth_hash
 from django.contrib import messages
 
 
@@ -32,3 +32,20 @@ def profile(request):
 def logout_user(request):
     logout(request)
     return HttpResponseRedirect('/login/')
+
+def changepassold(request):
+    if request.user.is_authenticated:
+        fm = PasswordChangeForm(request.user)
+        if request.method == 'POST':
+            fm = PasswordChangeForm(request.user,data=request.POST)
+            if fm.is_valid():
+                fm.save()
+                update_session_auth_hash(request,fm.user)
+                messages.success(request,'User password changed!!')
+                return HttpResponseRedirect('/profile/')
+        return render(request,'app2/changepass.html',{'form':fm})
+    else:
+        return HttpResponseRedirect('/login/')
+
+def changepass(request):
+    pass

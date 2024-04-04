@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app1.views import sign_up
-from app2.views import login_user,profile,logout_user
+from app2.views import login_user,profile,logout_user,changepass,changepassold
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +25,6 @@ urlpatterns = [
     path('login/', login_user,name='login'),
     path('profile/', profile,name='profile'),
     path('logout/', logout_user,name='logout'),
+    path('changepassold/', changepassold,name='changepassold'),
+    path('changepass/', changepass,name='changepass'),
 ]
