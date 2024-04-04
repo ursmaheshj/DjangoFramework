@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Password</title>
+</head>
+<body>
+    <h2>Change Password</h2>
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p>{{error}}</p>
+            {% endfor %}
+        {% endif %}
+
+        {% for field in form %}
+            <p>
+                {{field.label}} {{field}} {{field.errors|striptags}}
+            </p>
+        {% endfor %}
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
