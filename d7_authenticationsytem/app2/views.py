@@ -48,4 +48,15 @@ def changepassold(request):
         return HttpResponseRedirect('/login/')
 
 def changepass(request):
-    pass
+    if request.user.is_authenticated:
+        fm = SetPasswordForm(request.user)
+        if request.method == 'POST':
+            fm = SetPasswordForm(request.user,data=request.POST)
+            if fm.is_valid():
+                fm.save()
+                update_session_auth_hash(request,fm.user)
+                messages.success(request,'User password changed!!')
+                return HttpResponseRedirect('/profile/')
+        return render(request,'app2/changepass.html',{'form':fm})
+    else:
+        return HttpResponseRedirect('/login/')
