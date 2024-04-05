@@ -43,7 +43,7 @@ def profile(request):
                 fm = MyAdminUserChangeForm(instance=request.user)
             else:
                 users = None
-                fm = MyUserChangeForm(request.POST,instance=request.user)
+                fm = MyUserChangeForm(instance=request.user)
         return render(request,'app2/profile.html',{'name':request.user,'form':fm,'users':users})
     else:
         return HttpResponseRedirect('/login/')
