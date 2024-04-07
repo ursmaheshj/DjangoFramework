@@ -79,3 +79,11 @@ def changepass(request):
         return render(request,'app2/changepass.html',{'form':fm})
     else:
         return HttpResponseRedirect('/login/')
+
+def userdetail(request,id):
+    if request.user.is_authenticated:
+        user = User.objects.get(id=id)
+        fm = MyAdminUserChangeForm(instance=user)
+        return render(request,'app2/userdetail.html',{'form':fm})
+    else:
+        return HttpResponseRedirect('/login/')
