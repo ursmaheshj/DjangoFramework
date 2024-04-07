@@ -1,8 +1,8 @@
 from django.shortcuts import render,HttpResponseRedirect
 
 # Create your views here.
-def Dashboard(request):
+def dashboard(request):
     if request.user.is_authenticated:
-        pass    
+        return render(request,'app3/dashboard.html')    
     else:
         return HttpResponseRedirect('/login/')

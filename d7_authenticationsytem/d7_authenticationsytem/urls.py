@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from app1.views import sign_up
 from app2.views import login_user,profile,logout_user,changepass,changepassold,userdetail
-
+from app3.views import dashboard
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', sign_up,name='signup'),
@@ -28,4 +28,5 @@ urlpatterns = [
     path('changepassold/', changepassold,name='changepassold'),
     path('changepass/', changepass,name='changepass'),
     path('userdetail/<int:id>', userdetail,name='userdetail'),
+    path('dashboard/',dashboard,name='dashboard'),
 ]

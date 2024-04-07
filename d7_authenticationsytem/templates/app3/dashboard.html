@@ -6,6 +6,27 @@
     <title>Dashboard</title>
 </head>
 <body>
-    
+
+    <div>
+        {% if messages %}
+            {% for message in messages %}
+                    {{message}}
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <h2>Welcome {{request.user.username}}</h2>
+
+    {% if perms.app3.delete_blog %}
+    <input type="button" value='Delete'>
+    {% elif perms.app3.add_blog %}
+    <input type="button" value='Add'>
+    {% else %}
+    <p>You dont have any permissions!!</p>
+    {% endif %}
+
+    <br><br>
+    <p><a href="{% url "profile" %}">Profile</a></p>
+    <p><a href="{% url "logout" %}">Logout</a></p>
 </body>
 </html>

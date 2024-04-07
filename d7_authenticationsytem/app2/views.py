@@ -18,12 +18,12 @@ def login_user(request):
                 if user is not None:
                     login(request,user)
                     messages.success(request,'User has been logged in!!!')
-                    return HttpResponseRedirect('/profile/')
+                    return HttpResponseRedirect('/dashboard/')
         else:
             fm = AuthenticationForm()
         return render(request,'app2/login.html',{'form':fm})
     else:
-        return HttpResponseRedirect('/profile/')
+        return HttpResponseRedirect('/dashboard/')
     
 def profile(request):
     if request.user.is_authenticated:
