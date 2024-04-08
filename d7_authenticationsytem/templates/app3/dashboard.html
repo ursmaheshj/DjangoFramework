@@ -19,9 +19,17 @@
 
     {% if perms.app3.delete_blog %}
     <input type="button" value='Delete'>
-    {% elif perms.app3.add_blog %}
+    {% endif %}
+    {% if perms.app3.add_blog %}
     <input type="button" value='Add'>
-    {% else %}
+    {% endif %}
+    {% if perms.app3.change_blog %}
+    <input type="button" value='Change'>
+    {% endif %}
+    {% if perms.app3.view_blog %}
+    <input type="button" value='View'>
+    {% endif %}
+    {% if not perms.app3 %}
     <p>You dont have any permissions!!</p>
     {% endif %}
 
