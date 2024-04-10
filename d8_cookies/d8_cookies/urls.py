@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from app1.views import setcookie,getcookie,deletecookie
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('setcookie/', setcookie),
+    path('getcookie/', getcookie),
+    path('deletecookie/', deletecookie),
 ]
