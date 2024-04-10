@@ -17,10 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app1.views import setcookie,getcookie,deletecookie
+from app2.views import ssetcookie,sgetcookie,sdeletecookie
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('setcookie/', setcookie),
     path('getcookie/', getcookie),
     path('deletecookie/', deletecookie),
+
+    path('ssetcookie/', ssetcookie),
+    path('sgetcookie/', sgetcookie),
+    path('sdeletecookie/', sdeletecookie),
 ]

@@ -1,20 +1,18 @@
 from django.shortcuts import render
 
 # Create your views here.
-def setcookie(request):
-    response = render(request,'app1/setcookie.html')
-    response.set_cookie('Name','ram')
-    response.set_cookie('age',28)
-    response.set_cookie('12',28)
+def ssetcookie(request):
+    response = render(request,'app2/ssetcookie.html')
+    response.set_signed_cookie('Name','ram',salt='django')
+    response.set_signed_cookie('age',28)
     return response
 
-def getcookie(request):
-    cookies = request.COOKIES
-    # name = request.COOKIES['age']
-    name = request.COOKIES.get('Name')
-    return render(request,'app1/getcookie.html',{'cookies':cookies,'name':name})
+def sgetcookie(request):
+    name = request.get_signed_cookie('Name',default='Not found',salt='django')
+    age = request.get_signed_cookie('age',default='Not found')
+    return render(request,'app2/sgetcookie.html',{'name':name,'age':age})
 
-def deletecookie(request):
-    response = render(request,'app1/deletecookie.html')
+def sdeletecookie(request):
+    response = render(request,'app2/sdeletecookie.html')
     response.delete_cookie('Name')
     return response
