@@ -4,6 +4,7 @@ from django.shortcuts import render
 def setsession(request):
     request.session['name']='Ram'
     request.session['lname']='Raghuvanshi'
+    request.session.set_expiry(5)
     return render(request,'app1/setsession.html')
 
 def getsession(request):
@@ -23,4 +24,5 @@ def delsession(request):
     # if 'name' in request.session:
     #     del request.session['name']
     request.session.flush()
+    request.session.clear_expired()
     return render(request,'app1/delsession.html')
