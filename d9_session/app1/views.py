@@ -9,7 +9,8 @@ def setsession(request):
 def getsession(request):
     # name = request.session['name']
     # lname = request.session['lname']
-    name = request.session.get('name',"Name not available")
+    name = request.session.get('name')
+    request.session.setdefault('age',25)
     lname = request.session.get('lname',"Lname not available")
     items = request.session.items()
     return render(request,'app1/getsession.html',{'name':name,'lname':lname,'items':items})
