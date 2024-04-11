@@ -14,5 +14,6 @@ def getsession(request):
     return render(request,'app1/getsession.html',{'name':name,'lname':lname})
 
 def delsession(request):
-    del request.session['name']
+    if 'name' in request.session:
+        del request.session['name']
     return render(request,'app1/delsession.html')
