@@ -7,7 +7,11 @@
 </head>
 <body>
     <h3>Get Session</h3>
-
     {{name}} {{lname}}
+
+    <h3>Items(key,value) in session</h3>
+    {% for key,value in items %}
+        <p>{{key}} : {{value}}</p>
+    {% endfor %}
 </body>
 </html>

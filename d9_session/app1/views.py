@@ -11,7 +11,8 @@ def getsession(request):
     # lname = request.session['lname']
     name = request.session.get('name',"Name not available")
     lname = request.session.get('lname',"Lname not available")
-    return render(request,'app1/getsession.html',{'name':name,'lname':lname})
+    items = request.session.items()
+    return render(request,'app1/getsession.html',{'name':name,'lname':lname,'items':items})
 
 def delsession(request):
     if 'name' in request.session:
