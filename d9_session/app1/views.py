@@ -12,6 +12,7 @@ def getsession(request):
     # lname = request.session['lname']
     print(request.session.get_session_cookie_age()) 
     print(request.session.get_expiry_age())
+    request.session.modified = True
     print(request.session.get_expiry_date())
     print(request.session.get_expire_at_browser_close())
     name = request.session.get('name')
