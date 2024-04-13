@@ -4,7 +4,7 @@ from django.shortcuts import render
 def setsession(request):
     request.session['name']='Ram'
     request.session['lname']='Raghuvanshi'
-    request.session.set_expiry(5)
+    # request.session.set_expiry(5)
     return render(request,'app1/setsession.html')
 
 def getsession(request):
