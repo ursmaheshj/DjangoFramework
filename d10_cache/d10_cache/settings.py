@@ -125,3 +125,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+##################### Database Cache Configurations ##################
+CASCHE_MIDDLEWARE_SECONDS = 30
+CACHES = {
+    'default':{
+        'BACKEND':'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION':'cache_table'
+    }
+}
