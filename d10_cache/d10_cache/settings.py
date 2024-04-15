@@ -135,6 +135,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # }
 
 ##################### File Cache Configurations ##################
+# CASCHE_MIDDLEWARE_SECONDS = 30
+# CACHES = {
+#     'default':{
+#         'BACKEND':'django.core.cache.backends.db.DatabaseCache',
+#         'LOCATION':'cache_table'
+#     }
+# }
+
+##################### Local Memory Cache Configurations ##################
 CASCHE_MIDDLEWARE_SECONDS = 30
 CACHES = {
     'default':{
