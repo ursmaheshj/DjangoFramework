@@ -135,19 +135,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # }
 
 ##################### File Cache Configurations ##################
-# CASCHE_MIDDLEWARE_SECONDS = 30
-# CACHES = {
-#     'default':{
-#         'BACKEND':'django.core.cache.backends.filebased.FileBasedCache',
-#         'LOCATION': BASE_DIR / 'cache_folder'
-#     }
-# }
-
-##################### Local Memory Cache Configurations ##################
 CASCHE_MIDDLEWARE_SECONDS = 30
 CACHES = {
     'default':{
-        'BACKEND':'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION':'unique-snowflake'
+        'BACKEND':'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': BASE_DIR / 'cache_folder'
     }
 }
+
+##################### Local Memory Cache Configurations ##################
+# CASCHE_MIDDLEWARE_SECONDS = 30
+# CACHES = {
+#     'default':{
+#         'BACKEND':'django.core.cache.backends.locmem.LocMemCache',
+#         'LOCATION':'unique-snowflake'
+#     }
+# }
