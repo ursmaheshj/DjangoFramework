@@ -18,9 +18,11 @@ from django.contrib import admin
 from django.urls import path
 from app1.views import home
 from app2.views import perviewhome
+from django.views.decorators.cache import cache_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', home),
-    path('perviewhome/', perviewhome),
+    # path('perviewhome/', perviewhome),
+    path('perviewhome/', cache_page(20)(perviewhome),name='perviewhome')
 ]
