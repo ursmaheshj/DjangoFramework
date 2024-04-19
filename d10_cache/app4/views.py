@@ -20,7 +20,9 @@ def lowlevelhome(request):
 
 def lowlevelgethome(request):
     keys = ['Name','Age']
-    data = cache.get_many(keys) 
+    data = cache.get_many(keys)
+    # cache.incr('Age',delta=5)
+    cache.decr('Age',delta=5)
     # cache.delete('Name',version=2)
-    cache.delete_many(['Name','Age','roll'])
+    # cache.delete_many(['Name','Age','roll'])
     return render(request,'app4/home.html',{'data':data})
