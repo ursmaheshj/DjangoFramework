@@ -19,6 +19,7 @@ from django.urls import path
 from app1.views import home
 from app2.views import perviewhome
 from app3.views import fragmenthome
+from app4.views import lowlevelhome,lowlevelgethome
 from django.views.decorators.cache import cache_page
 
 urlpatterns = [
@@ -27,4 +28,6 @@ urlpatterns = [
     # path('perviewhome/', perviewhome),
     path('perviewhome/', cache_page(20)(perviewhome),name='perviewhome'),
     path('fragmenthome/', fragmenthome),
+    path('lowlevelhome/', lowlevelhome),
+    path('lowlevelgethome/', lowlevelgethome),
 ]
