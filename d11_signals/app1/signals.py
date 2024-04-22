@@ -1,6 +1,8 @@
 from django.contrib.auth.signals import user_logged_in,user_logged_out,user_login_failed
 from django.contrib.auth.models import User
+from django.dispatch import receiver
 
+@receiver(user_logged_in)
 def login_success(sender,request,user,**kwargs):
     print('---------------------------------------')
     print('----------- -Logged in Signal----------')
@@ -11,4 +13,4 @@ def login_success(sender,request,user,**kwargs):
     print('Kwargs',kwargs)
 
 #Manual Signal Connection
-user_logged_in.connect(login_success,sender=User,dispatch_uid='SuccessSignal')
+# user_logged_in.connect(login_success,sender=User,dispatch_uid='SuccessSignal')
