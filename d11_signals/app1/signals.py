@@ -7,5 +7,8 @@ def login_success(sender,request,user,**kwargs):
     print('Sender:',sender)
     print('Request:',request)
     print('User:',user)
-    print('User Password:',user.password())
+    print('User Password:',user.password)
     print('Kwargs',kwargs)
+
+#Manual Signal Connection
+user_logged_in.connect(login_success,sender=User,dispatch_uid='SuccessSignal')
