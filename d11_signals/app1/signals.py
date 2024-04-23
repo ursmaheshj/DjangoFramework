@@ -1,8 +1,8 @@
-from django.contrib.auth.signals import user_logged_in,user_logged_out,user_login_failed
 from django.contrib.auth.models import User
 from django.dispatch import receiver
+from django.contrib.auth.signals import user_logged_in,user_logged_out,user_login_failed
 from django.db.models.signals import pre_save,post_save,pre_delete,post_delete
-
+from django.core.signals import request_started,request_finished,got_request_exception
 
 # -----------------------------login/logout Signals-------------------------------
 @receiver(user_logged_in)
@@ -81,4 +81,29 @@ def at_ending_delete(sender,instance,**kwargs):
     print('-------------Ending of delete----------')
     print('Sender:',sender)
     print('Instance:',instance)
+    print('kwargs:',kwargs)
+
+#-----------------------------------Request/Response signals----------------------------
+
+@receiver(request_started)
+def req_start(sender,environ,**kwargs):
+    print('---------------------------------------')
+    print('-------------At start request----------')
+    print('Sender:',sender)
+    print('environ:',environ)
+    print('kwargs:',kwargs)
+
+@receiver(request_finished)
+def req_finish(sender,**kwargs):
+    print('---------------------------------------')
+    print('-------------At request finished----------')
+    print('Sender:',sender)
+    print('kwargs:',kwargs)
+
+@receiver(got_request_exception)
+def req_exception(sender,request,**kwargs):
+    print('---------------------------------------')
+    print('-------------At request exception----------')
+    print('Sender:',sender)
+    print('request:',request)
     print('kwargs:',kwargs)
