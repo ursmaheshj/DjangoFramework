@@ -19,7 +19,7 @@ def login_success(sender,request,user,**kwargs):
     print('Kwargs',kwargs)
 
 @receiver(user_logged_out)
-def login_success(sender,request,user,**kwargs):
+def logout_success(sender,request,user,**kwargs):
     print('---------------------------------------')
     print('------------Logged out Signal----------')
     print('Sender:',sender)
@@ -29,7 +29,7 @@ def login_success(sender,request,user,**kwargs):
     print('Kwargs',kwargs)
 
 @receiver(user_login_failed)
-def login_success(sender,credentials,request,**kwargs):
+def login_failed(sender,credentials,request,**kwargs):
     print('---------------------------------------')
     print('----------- -Logged in Failed----------')
     print('Sender:',sender)

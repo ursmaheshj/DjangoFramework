@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app1.views import request_exception
+from app2.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('exception/',request_exception)
+    path('exception/',request_exception),
+    path('',home)
 ]
