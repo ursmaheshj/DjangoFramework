@@ -4,7 +4,7 @@ from django.contrib.auth.signals import user_logged_in,user_logged_out,user_logi
 from django.db.models.signals import pre_save,post_save,pre_delete,post_delete
 from django.core.signals import request_started,request_finished,got_request_exception
 from django.db.models.signals import pre_migrate,post_migrate
-
+from django.db.backends.signals import connection_created
 
 
 # -----------------------------login/logout Signals-------------------------------
@@ -125,7 +125,7 @@ def before_migrate_app(sender, app_config, verbosity, interactive,using,plan,app
     print('apps:',apps)
     print('kwargs:',kwargs)
 
-@receiver(pre_migrate)
+@receiver(post_migrate)
 def after_migrate_app(sender, app_config, verbosity, interactive,using,plan,apps,**kwargs):
     print('---------------------------------------')
     print('-------------After Migration-----------')
@@ -137,3 +137,12 @@ def after_migrate_app(sender, app_config, verbosity, interactive,using,plan,apps
     print('apps:',apps)
     print('kwargs:',kwargs)
 
+
+#----------------------Database wrapper signal----------------------
+@receiver(connection_created)
+def db_conn(sender,connection,**kwargs):
+    print('---------------------------------------')
+    print('-------------Connecting Database-----------')
+    print('Sender:',sender)
+    print('connection:',connection)
+    print('kwargs:',kwargs)
