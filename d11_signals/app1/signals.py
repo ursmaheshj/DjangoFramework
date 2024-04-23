@@ -3,6 +3,9 @@ from django.dispatch import receiver
 from django.contrib.auth.signals import user_logged_in,user_logged_out,user_login_failed
 from django.db.models.signals import pre_save,post_save,pre_delete,post_delete
 from django.core.signals import request_started,request_finished,got_request_exception
+from django.db.models.signals import pre_migrate,post_migrate
+
+
 
 # -----------------------------login/logout Signals-------------------------------
 @receiver(user_logged_in)
@@ -107,3 +110,30 @@ def req_exception(sender,request,**kwargs):
     print('Sender:',sender)
     print('request:',request)
     print('kwargs:',kwargs)
+
+
+#------------------------------------Management Signals---------------------
+@receiver(pre_migrate)
+def before_migrate_app(sender, app_config, verbosity, interactive,using,plan,apps,**kwargs):
+    print('---------------------------------------')
+    print('-------------Before Migration----------')
+    print('Sender:',sender)
+    print('app_config:',app_config)
+    print('verbosity:',verbosity)
+    print('interactive:',interactive)
+    print('using:',using)
+    print('apps:',apps)
+    print('kwargs:',kwargs)
+
+@receiver(pre_migrate)
+def after_migrate_app(sender, app_config, verbosity, interactive,using,plan,apps,**kwargs):
+    print('---------------------------------------')
+    print('-------------After Migration-----------')
+    print('Sender:',sender)
+    print('app_config:',app_config)
+    print('verbosity:',verbosity)
+    print('interactive:',interactive)
+    print('using:',using)
+    print('apps:',apps)
+    print('kwargs:',kwargs)
+
