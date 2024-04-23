@@ -1,7 +1,7 @@
 from django.contrib.auth.signals import user_logged_in,user_logged_out,user_login_failed
 from django.contrib.auth.models import User
 from django.dispatch import receiver
-from django.db.models.signals import pre_save,post_save
+from django.db.models.signals import pre_save,post_save,pre_delete,post_delete
 
 
 # -----------------------------login/logout Signals-------------------------------
@@ -65,3 +65,20 @@ def at_ending_save(sender,instance,created,**kwargs):
         print('Instance:',instance)
         print('created:',created)
         print('kwargs:',kwargs)
+
+
+@receiver(pre_delete)
+def at_beginning_delete(sender,instance,**kwargs):
+    print('---------------------------------------')
+    print('-------------Beginning of delete----------')
+    print('Sender:',sender)
+    print('Instance:',instance)
+    print('kwargs:',kwargs)
+
+@receiver(post_delete)
+def at_ending_delete(sender,instance,**kwargs):
+    print('---------------------------------------')
+    print('-------------Ending of delete----------')
+    print('Sender:',sender)
+    print('Instance:',instance)
+    print('kwargs:',kwargs)
