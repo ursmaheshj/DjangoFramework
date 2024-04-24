@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'app1.middlewares.funcMiddleware',
+    'app1.middlewares.classMiddleware',
 ]
 
 ROOT_URLCONF = 'd12_middleware.urls'
