@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'app1.middlewares.funcMiddleware',
+    'app1.middlewares.middlewareHook',
     'app1.middlewares.classMiddleware',
 ]
 

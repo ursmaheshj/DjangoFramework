@@ -19,7 +19,21 @@ class classMiddleware:
         print('--------class:one-time configuration/initialization---------')
     def __call__(self,request):
         print('-----class:Code execute before view-------')
-        # response = self.get_response(request)
-        response = HttpResponse('Cant go forward, response from middleware')
+        response = self.get_response(request)
+        # response = HttpResponse('Cant go forward, response from middleware')
         print('-----class:Code execute After view-------')
         return response
+    def process_view(self,request,*args, **kwargs):
+        print('----------class:Inside processview-run before view--------')
+
+class middlewareHook:
+    def __init__(self,get_response):
+        self.get_response = get_response
+        print('--------hooks:one-time configuration/initialization---------')
+    def __call__(self,request):
+        print('-----hooks:Code execute before view-------')
+        response = self.get_response(request)
+        print('-----hooks:Code execute After view-------')
+        return response
+    def process_view(self,*args, **kwargs):
+        print('----------hooks:Inside processview-run before view--------')
