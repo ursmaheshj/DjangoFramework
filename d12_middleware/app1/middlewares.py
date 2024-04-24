@@ -37,3 +37,7 @@ class middlewareHook:
         return response
     def process_view(self,*args, **kwargs):
         print('----------hooks:Inside processview-run before view--------')
+    def process_exception(self,request,exception):
+        print('------hooks:Inside process exception------')
+        msg = exception
+        return HttpResponse(f'from process_exception:{msg}')

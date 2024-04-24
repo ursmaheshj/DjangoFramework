@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app1.views import home
+from app1.views import home,excep
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home),
+    path('exception/',excep),
 ]
