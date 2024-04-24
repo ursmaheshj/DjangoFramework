@@ -6,8 +6,8 @@ def funcMiddleware(get_response):
     print('--------func:one-time configuration/initialization---------')
     def myMiddleware(request):
         print('-----func:Code execute before view-------')
-        # response = get_response(request)
-        response = HttpResponse('Cant go forward, response from middleware')
+        response = get_response(request)
+        # response = HttpResponse('Cant go forward, response from middleware')
         print('-----func:Code execute After view-------')
         return response
     return myMiddleware
@@ -19,6 +19,7 @@ class classMiddleware:
         print('--------class:one-time configuration/initialization---------')
     def __call__(self,request):
         print('-----class:Code execute before view-------')
-        response = self.get_response(request)
+        # response = self.get_response(request)
+        response = HttpResponse('Cant go forward, response from middleware')
         print('-----class:Code execute After view-------')
         return response
