@@ -38,6 +38,11 @@ class middlewareHook:
     def process_view(self,*args, **kwargs):
         print('----------hooks:Inside processview-run before view--------')
     def process_exception(self,request,exception):
-        print('------hooks:Inside process exception------')
+        print('------hooks:process_exception(Exception occured)------')
         msg = exception
-        return HttpResponse(f'from process_exception:{msg}')
+        className = exception.__class__.__name__
+        return HttpResponse(f'from process_exception:{className}:{msg}')
+    def process_template_response(self,request,response):
+        print('---------hooks:Process template response----------')
+        response.context_data['name']='Mahadev'
+        return response
