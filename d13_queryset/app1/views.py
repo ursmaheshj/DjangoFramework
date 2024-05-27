@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from app1.models import Student
+from app1.models import Student,Teacher
 
 # Create your views here.
 def home(request):
@@ -13,7 +13,11 @@ def home(request):
     # data = Student.objects.distinct()
     # data = Student.objects.values_list('name','city',named=True)
     # data = Student.objects.using('default')
-    data = Student.objects.dates('pass_date','week')
+    # data = Student.objects.dates('pass_date','week')
+    # data = Student.objects.union(Teacher.objects.all(),all=True)
+    q1 = Student.objects.values_list('name','marks',named=True)
+    q2 = Teacher.objects.values_list('name','salary',named=True)
+    data = q1.union(q2,all=True)
 
     print("---Return Data:", data)
     print("---Query:",data.query)
