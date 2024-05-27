@@ -6,7 +6,8 @@ def home(request):
     # data = Student.objects.all()
     # data = Student.objects.filter(marks = 99,name='Ram')
     # data = Student.objects.exclude(marks = 99,name='Ram')
-    data = Student.objects.order_by('marks','-name')
+    # data = Student.objects.order_by('marks','-name')
+    data = Student.objects.order_by('id').reverse()
 
     print("---Return Data:", data)
     print("---Query:",data.query)
