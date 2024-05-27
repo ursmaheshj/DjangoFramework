@@ -17,7 +17,9 @@ def home(request):
     # data = Student.objects.union(Teacher.objects.all(),all=True)
     q1 = Student.objects.values_list('name','marks',named=True)
     q2 = Teacher.objects.values_list('name','salary',named=True)
-    data = q1.union(q2,all=True)
+    # data = q1.union(q2,all=True)
+    # data = q1.intersection(q2)
+    data = q2.difference(q1)
 
     print("---Return Data:", data)
     print("---Query:",data.query)
