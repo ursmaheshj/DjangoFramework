@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse
-from django.template.response import TemplateResponse as render
+from django.template.response import TemplateResponse
 
 # Create your views here.
 def home(request):
@@ -18,4 +18,4 @@ def profile(request):
         'name':'Mahesh',
         'age':25,
     }
-    return render(request,'app1/profile.html',context)
+    return TemplateResponse(request,'app1/profile.html',context)
