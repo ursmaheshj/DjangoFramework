@@ -11,7 +11,8 @@ def home(request):
     # data = Student.objects.values()
     # data = Student.objects.values('name','city','pass_date')
     # data = Student.objects.distinct()
-    data = Student.objects.values_list('name','city',named=True)
+    # data = Student.objects.values_list('name','city',named=True)
+    data = Student.objects.using('default')
 
     print("---Return Data:", data)
     print("---Query:",data.query)
