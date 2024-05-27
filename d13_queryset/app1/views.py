@@ -9,7 +9,8 @@ def home(request):
     # data = Student.objects.order_by('marks','-name')
     # data = Student.objects.order_by('id').reverse()[:4]
     # data = Student.objects.values()
-    data = Student.objects.values('name','city','pass_date')
+    # data = Student.objects.values('name','city','pass_date')
+    data = Student.objects.distinct()
 
     print("---Return Data:", data)
     print("---Query:",data.query)
