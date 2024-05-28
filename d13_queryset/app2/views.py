@@ -7,6 +7,7 @@ def home2(request):
     # data = Student.objects.get(name='Rutuja') # should be uniquely identifiable
     # data = Student.objects.first()
     # data = Student.objects.order_by('name').first()
+    data = Student.objects.last()
 
     print("---Return Data:", data)
     # print("---Query:",data.query) #only used with queryset with list
