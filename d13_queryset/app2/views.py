@@ -13,7 +13,9 @@ def home2(request):
     # data = Student.objects.exists()
     # data = Student.objects.filter(name='Mahesh').exists()
     # data=Student.objects.create(name='Radha',city='Mathura',roll=51,marks=100,pass_date='2020-3-28')
-    data,created=Student.objects.get_or_create(name='Radha',city='Mathura',roll=31,marks=100,pass_date='2020-3-28') #crated will be true false based on object creation
+    # data,created=Student.objects.get_or_create(name='Radha',city='Mathura',roll=31,marks=100,pass_date='2020-3-28') #crated will be true false based on object creation
+    # data = Student.objects.filter(name='Radha').update(city='Mathura') 
+    data = Student.objects.filter(name='Radaha').update_or_create(name='Krishna',city='Mathura',roll=44,marks=44,pass_date='2024-3-28')
     
     
     print("---Return Data:", data)
