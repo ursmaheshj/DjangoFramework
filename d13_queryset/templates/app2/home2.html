@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+        <h2>QuerySet API (do not return new QuerySet)</h2>
+        <div>
+            <table border='solid'>
+               <tr>
+                    <th>Roll</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Marks</th>
+                    <th>Passing Date</th>
+               </tr>
+               {% comment %} {% for data in data %} {% endcomment %}
+                <tr>
+                    <td>{{data.roll}}</td>
+                    <td>{{data.name}}</td>
+                    <td>{{data.city}}</td>
+                    <td>{{data.marks}}</td>
+                    <td>{{data.pass_date}}</th>
+                </tr>
+               {% comment %} {% endfor %} {% endcomment %}
+
+            </table>
+        </div>
+
+    
+</body>
+</html>
