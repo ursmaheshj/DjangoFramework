@@ -3,7 +3,7 @@ from app1.models import Student,Teacher
 
 # Create your views here.
 def home(request):
-    # data = Student.objects.all()
+    data = Student.objects.all()
     # data = Student.objects.filter(marks = 99,name='Ram')
     # data = Student.objects.exclude(marks = 99,name='Ram')
     # data = Student.objects.order_by('marks','-name')
@@ -21,7 +21,7 @@ def home(request):
     # data = q1.intersection(q2)
     # data = q2.difference(q1)
     # data = Student.objects.filter(id=1) & Student.objects.filter(name='Mahesh')
-    data = Student.objects.filter(id=1) | Student.objects.filter(name='Rutuja')
+    # data = Student.objects.filter(id=1) | Student.objects.filter(name='Rutuja')
 
     print("---Return Data:", data)
     print("---Query:",data.query)
