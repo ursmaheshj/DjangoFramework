@@ -30,8 +30,9 @@ def home2(request):
     # data = Student.objects.in_bulk([1,4,5]) 
     # data = Student.objects.filter(marks=50).delete()
     # data = Student.objects.get(pk=3).delete()
-    data = Student.objects.filter(marks=99).count()
-    
+    # data = Student.objects.filter(marks=99).count()
+    data = Student.objects.filter(marks=99).explain()
+
     print("---Return Data:", data)
     # print("---Query:",data.query) #only used with queryset with list
     return render(request,'app2/home2.html',{'data':data})
