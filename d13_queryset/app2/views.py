@@ -23,10 +23,14 @@ def home2(request):
     #     Student(name='Samay',city='Mumbai',roll=103,marks=50,pass_date='2020-3-1')
     # ]
     # data = Student.objects.bulk_create(objs)
-    objs = Student.objects.filter(marks=99)
-    for obj in objs:
-        obj.city = 'Pune'
-    data = Student.objects.bulk_update(objs,['city'])
+    # objs = Student.objects.filter(marks=99)
+    # for obj in objs:
+    #     obj.city = 'Pune'
+    # data = Student.objects.bulk_update(objs,['city'])
+    # data = Student.objects.in_bulk([1,4,5]) 
+    # data = Student.objects.filter(marks=50).delete()
+    # data = Student.objects.get(pk=3).delete()
+    data = Student.objects.filter(marks=99).count()
     
     print("---Return Data:", data)
     # print("---Query:",data.query) #only used with queryset with list
