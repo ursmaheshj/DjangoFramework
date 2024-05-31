@@ -8,7 +8,8 @@ def home3(request):
     # students = Student.objects.filter(name__iexact='ruTuja')  #Case insensitive
     # students = Student.objects.filter(name__contains='ru')  #Case sensitive
     # students = Student.objects.filter(name__icontains='ru')  #Case insensitive
-    students = Student.objects.filter(marks__in=[12,90,70])
+    # students = Student.objects.filter(marks__in=[12,90,70])
+    students = Student.objects.filter(marks__gt=50)
     
 
 
