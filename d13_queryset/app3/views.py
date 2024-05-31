@@ -5,7 +5,9 @@ from app3.models import Student
 def home3(request):
     # students = Student.objects.all()
     # students = Student.objects.filter(name__exact='Rutuja')  #Case sensitive
-    students = Student.objects.filter(name__iexact='ruTuja')  #Case insensitive
+    # students = Student.objects.filter(name__iexact='ruTuja')  #Case insensitive
+    # students = Student.objects.filter(name__contains='ru')  #Case sensitive
+    students = Student.objects.filter(name__icontains='ru')  #Case insensitive
     
 
 
