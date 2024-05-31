@@ -13,6 +13,8 @@ def home3(request):
     # students = Student.objects.filter(marks__gte=50)
     # students = Student.objects.filter(marks__lt=70)
     # students = Student.objects.filter(marks__lte=70)
+    # students = Student.objects.filter(name__startswith='ru')
+    # students = Student.objects.filter(name__istartswith='ru')
     
 
 
