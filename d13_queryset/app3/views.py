@@ -34,7 +34,8 @@ def home3(request):
     # students = Student.objects.filter(passdate__quarter=2)
     # students = Student.objects.filter(admdatetime__time=time(9,45,34))
     # students = Student.objects.filter(admdatetime__time__gt=time(10,45,34))
-    students = Student.objects.filter(admdatetime__hour__gt=10)
+    # students = Student.objects.filter(admdatetime__hour__gt=10)
+    students = Student.objects.filter(admdatetime__minute__gt=15)
     
 
 
