@@ -26,8 +26,10 @@ def home3(request):
     # students = Student.objects.filter(passdate__year__gte=2023)
     # students = Student.objects.filter(passdate__month=5)
     # students = Student.objects.filter(passdate__month__gt=2)
-    students = Student.objects.filter(passdate__day=2)
-    students = Student.objects.filter(passdate__day__gt=15)
+    # students = Student.objects.filter(passdate__day=2)
+    # students = Student.objects.filter(passdate__day__gt=15)
+    # students = Student.objects.filter(passdate__week=1)
+    students = Student.objects.filter(passdate__week__lt=4)
     
 
 
