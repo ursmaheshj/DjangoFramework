@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from app3.models import Student
+from datetime import date
 
 # Create your views here.
 def home3(request):
@@ -17,7 +18,8 @@ def home3(request):
     # students = Student.objects.filter(name__istartswith='ru')
     # students = Student.objects.filter(name__endswith='H')
     # students = Student.objects.filter(name__iendswith='H')
-    students = Student.objects.filter(passdate__range=('2024-03-05','2024-05-10'))
+    # students = Student.objects.filter(passdate__range=('2024-03-05','2024-05-10'))
+    students = Student.objects.filter(admdatetime__date=date(2024,3,6))
     
 
 
