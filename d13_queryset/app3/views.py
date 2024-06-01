@@ -21,7 +21,9 @@ def home3(request):
     # students = Student.objects.filter(passdate__range=('2024-03-05','2024-05-10'))
     # students = Student.objects.filter(admdatetime__date=date(2024,3,6))
     # students = Student.objects.filter(admdatetime__year=2023)
-    students = Student.objects.filter(passdate__year=2023)
+    # students = Student.objects.filter(passdate__year=2023)
+    # students = Student.objects.filter(passdate__year__gt=2023)
+    students = Student.objects.filter(passdate__year__gte=2023)
     
 
 
