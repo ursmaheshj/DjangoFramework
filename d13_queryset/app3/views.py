@@ -15,6 +15,9 @@ def home3(request):
     # students = Student.objects.filter(marks__lte=70)
     # students = Student.objects.filter(name__startswith='ru')
     # students = Student.objects.filter(name__istartswith='ru')
+    # students = Student.objects.filter(name__endswith='H')
+    # students = Student.objects.filter(name__iendswith='H')
+    students = Student.objects.filter(passdate__range=('2024-03-05','2024-05-10'))
     
 
 
