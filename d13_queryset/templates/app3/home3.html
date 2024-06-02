@@ -31,6 +31,32 @@
 
             </table>
         </div>
+        {% comment %} ----------------------------------- {% endcomment %}
+        <div>
+            <h3>Q object results:</h3>
+            <table border='solid'>
+                <tr>
+                     <th>Roll</th>
+                     <th>Name</th>
+                     <th>City</th>
+                     <th>Marks</th>
+                     <th>Passing Date</th>
+                     <th>Admission Time</th>
+                </tr>
+                {% for data in q_results %}
+                 <tr>
+                     <td>{{data.roll}}</td>
+                     <td>{{data.name}}</td>
+                     <td>{{data.city}}</td>
+                     <td>{{data.marks}}</td>
+                     <td>{{data.passdate}}</th>
+                     <td>{{data.admdatetime}}</th>
+                 </tr>
+                {% endfor %}
+ 
+             </table>
+        </div>
+        {% comment %} -------------------------------------------- {% endcomment %}
         <div>
             <h3>Aggregate function in Django</h3>
             Avg: {{avg}} : {{avg.marks__avg}} <br>

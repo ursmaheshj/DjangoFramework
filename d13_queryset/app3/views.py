@@ -2,10 +2,11 @@ from django.shortcuts import render
 from app3.models import Student
 from datetime import date, time
 from django.db.models import Avg,Sum,Min,Max,Count,StdDev,Variance
+from django.db.models import Q
 
 # Create your views here.
 def home3(request):
-    students = Student.objects.all()
+    # students = Student.objects.all()
     # students = Student.objects.all()[:5]
     # students = Student.objects.all()[2:7]
     # students = Student.objects.all()[2:10:2]
@@ -42,7 +43,14 @@ def home3(request):
     # students = Student.objects.filter(admdatetime__minute__gt=15)
     # students = Student.objects.filter(admdatetime__second__gt=30)
     # students = Student.objects.filter(name__isnull=True)
-    # students = Student.objects.filter(city__regex='^.a')
+    students = Student.objects.filter(city__regex='^.a')
+
+    #------------------- Q objects for conditioning---------------------
+    # q_results = Student.objects.filter(Q(name='Ram'),Q(marks=80))
+    # q_results = Student.objects.filter(Q(name='Ram') & Q(marks=80))
+    q_results = Student.objects.filter(Q(name='Ram') | Q(marks=80))
+    # q_results = Student.objects.filter(Q(name='Ram') & ~ Q(marks=80))
+    
 
     #------------------# Aggregate Functions in Django------------------
     avg = Student.objects.aggregate(Avg('marks'))
@@ -57,6 +65,7 @@ def home3(request):
 
     context = {
         'students':students,
+        'q_results':q_results,
         'avg':avg,
         'sum':sum,
         'min':min,
@@ -64,8 +73,10 @@ def home3(request):
         'count':count,
         'std':std,
         'var':var,
-        'min_max':min_max
+        'min_max':min_max,
+
     }
     print("---Return Data:", students)
-    print("---Query:",students.query) #only used with queryset list
+    # print("---Query:",students.query) #only used with queryset list
+    print("---Query:",q_results.query) #only used with queryset list
     return render(request,'app3/home3.html',context)
