@@ -6,6 +6,9 @@ from django.db.models import Avg,Sum,Min,Max,Count,StdDev,Variance
 # Create your views here.
 def home3(request):
     students = Student.objects.all()
+    # students = Student.objects.all()[:5]
+    # students = Student.objects.all()[2:7]
+    # students = Student.objects.all()[2:10:2]
     # students = Student.objects.filter(name__exact='Rutuja')  #Case sensitive
     # students = Student.objects.filter(name__iexact='ruTuja')  #Case insensitive
     # students = Student.objects.filter(name__contains='ru')  #Case sensitive
@@ -64,5 +67,5 @@ def home3(request):
         'min_max':min_max
     }
     print("---Return Data:", students)
-    # print("---Query:",students.query) #only used with queryset list
+    print("---Query:",students.query) #only used with queryset list
     return render(request,'app3/home3.html',context)
