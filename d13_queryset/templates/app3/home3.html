@@ -31,6 +31,17 @@
 
             </table>
         </div>
+        <div>
+            <h3>Aggregate function in Django</h3>
+            Avg: {{avg}} : {{avg.marks__avg}} <br>
+            Sum: {{sum}} : {{sum.marks__sum}} <br>
+            Min: {{min}} : {{min.marks__min}} <br>
+            Max: {{max}} : {{max.marks__max}} <br>
+            Count: {{count}} : {{count.marks__count}} <br>
+            Std: {{std}} : {{std.marks__std}} <br>
+            Var: {{var}} : {{var.marks__var}} <br>
+            min_max: {{min_max}} : {{min_max.marks__min}} :{{min_max.marks__max}}
+        </div>
 
     
 </body>

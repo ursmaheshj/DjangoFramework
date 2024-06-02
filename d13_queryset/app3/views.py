@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from app3.models import Student
 from datetime import date, time
+from django.db.models import Avg,Sum,Min,Max,Count,StdDev,Variance
 
 # Create your views here.
 def home3(request):
-    # students = Student.objects.all()
+    students = Student.objects.all()
     # students = Student.objects.filter(name__exact='Rutuja')  #Case sensitive
     # students = Student.objects.filter(name__iexact='ruTuja')  #Case insensitive
     # students = Student.objects.filter(name__contains='ru')  #Case sensitive
@@ -38,10 +39,30 @@ def home3(request):
     # students = Student.objects.filter(admdatetime__minute__gt=15)
     # students = Student.objects.filter(admdatetime__second__gt=30)
     # students = Student.objects.filter(name__isnull=True)
-    students = Student.objects.filter(city__regex='^.a')
+    # students = Student.objects.filter(city__regex='^.a')
+
+    #------------------# Aggregate Functions in Django------------------
+    avg = Student.objects.aggregate(Avg('marks'))
+    sum = Student.objects.aggregate(Sum('marks'))
+    min = Student.objects.aggregate(Min('marks'))
+    max = Student.objects.aggregate(Max('marks'))
+    count = Student.objects.aggregate(Count('marks'))
+    std = Student.objects.aggregate(StdDev('marks'))
+    var = Student.objects.aggregate(Variance('marks'))
+    min_max = Student.objects.aggregate(Min('marks'),Max('marks'))
     
 
-
+    context = {
+        'students':students,
+        'avg':avg,
+        'sum':sum,
+        'min':min,
+        'max':max,
+        'count':count,
+        'std':std,
+        'var':var,
+        'min_max':min_max
+    }
     print("---Return Data:", students)
-    print("---Query:",students.query) #only used with queryset with list
-    return render(request,'app3/home3.html',{'students':students})
+    # print("---Query:",students.query) #only used with queryset list
+    return render(request,'app3/home3.html',context)
