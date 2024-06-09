@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app1_inheritance',
     'app2_relation',
+    'app3_proxymodel',
 ]
 
 MIDDLEWARE = [
