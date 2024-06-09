@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'app1_inheritance',
     'app2_relation',
     'app3_proxymodel',
+    'app4_modelmanager',
 ]
 
 MIDDLEWARE = [
