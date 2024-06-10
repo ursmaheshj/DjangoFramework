@@ -8,5 +8,6 @@ def modelmanager(request):
 
 def custommodelmanager(request):
     # teachers = Teacher.objects.all().values()
-    teachers = Teacher.teachers.all().values()
+    # teachers = Teacher.teachers.all().values()
+    teachers = Teacher.teachers.get_salary_range(100000,600000).values()
     return HttpResponse(teachers)
