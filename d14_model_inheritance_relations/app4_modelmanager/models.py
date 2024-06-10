@@ -12,3 +12,13 @@ class Teacher(models.Model):
     salary = models.IntegerField()
     teachers = CustomManager()
     objects = models.Manager()
+
+class ExamCenter(models.Model):
+    name = models.CharField(max_length=50)
+    city = models.CharField(max_length=50)
+
+class MyExamCenter(ExamCenter):
+    examManager = CustomManager()
+    class Meta:
+        proxy = True
+        ordering = ['name']

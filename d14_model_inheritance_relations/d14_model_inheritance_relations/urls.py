@@ -17,11 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app2_relation.views import home
-from app4_modelmanager.views import modelmanager,custommodelmanager
+from app4_modelmanager.views import modelmanager,custommodelmanager,examcenter
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', home),
     path('modelmanager/', modelmanager),
     path('custommodelmanager/', custommodelmanager),
+    path('examcenter/', examcenter),
 ]
