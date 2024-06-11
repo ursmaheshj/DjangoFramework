@@ -10,6 +10,7 @@ class Husband(models.Model):
 
 class Wife(models.Model):
     name = models.CharField(max_length=50)
+    # husband = models.OneToOneField(Husband,on_delete=models.PROTECT,limit_choices_to={'salary':5000})
     husband = models.OneToOneField(Husband,on_delete=models.CASCADE,limit_choices_to={'salary':5000})
     def __str__(self):
         return self.name
