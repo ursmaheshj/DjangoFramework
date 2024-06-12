@@ -21,7 +21,17 @@ def user(request):
     return render(request,'app4_examples/user.html',context)
 
 def page(request):
-    return render(request,'app4_examples/page.html')
+    pages = Page.objects.all()
+    pageson12 = Page.objects.filter(user__post__publish = '2024-06-12')
+    pageswith4min = Page.objects.filter(user__song__duration = 4)
+    pagesbyuser = Page.objects.filter(post__user__username = 'mahesh')
+    context = {
+        'pages':pages,
+        'pageson12':pageson12,
+        'pageswith4min':pageswith4min,
+        'pagesbyuser':pagesbyuser,
+    }
+    return render(request,'app4_examples/page.html',context)
 
 def post(request):
     return render(request,'app4_examples/post.html')

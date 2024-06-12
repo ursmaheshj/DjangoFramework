@@ -9,5 +9,78 @@
     <h1>One to One</h1>
     <div><button><a href="{% url "home" %}">Home</a></button></div>
 
+    <div>
+        <h4>All Pages</h4>
+        <table border='solid'>
+            <tr>
+                <th>Pagename</th>
+                <th>Publish</th>
+                <th>Published By</th>
+            </tr>
+            {% for data in pages %}
+            <tr>
+                <td>{{data.pagename}}</td>
+                <td>{{data.publish}}</td>
+                <td>{{data.user}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div>
+        <h4>Pages published by user who also posted post on 12/06/2024</h4>
+        <table border='solid'>
+            <tr>
+                <th>Pagename</th>
+                <th>Publish</th>
+                <th>Published By</th>
+            </tr>
+            {% for data in pageson12 %}
+            <tr>
+                <td>{{data.pagename}}</td>
+                <td>{{data.publish}}</td>
+                <td>{{data.user}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div>
+        <h4>Pages published by user who sang song of 4 min</h4>
+        <table border='solid'>
+            <tr>
+                <th>Pagename</th>
+                <th>Publish</th>
+                <th>Published By</th>
+            </tr>
+            {% for data in pageswith4min %}
+            <tr>
+                <td>{{data.pagename}}</td>
+                <td>{{data.publish}}</td>
+                <td>{{data.user}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div>
+        <h4>Pages containing posts which are published by specific user</h4>
+        <table border='solid'>
+            <tr>
+                <th>Pagename</th>
+                <th>Publish</th>
+                <th>Published By</th>
+            </tr>
+            {% for data in pagesbyuser %}
+            <tr>
+                <td>{{data.pagename}}</td>
+                <td>{{data.publish}}</td>
+                <td>{{data.user}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+   
+
 </body>
 </html>
