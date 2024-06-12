@@ -37,9 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app1_onetoone',
-    'app2_manytoone',
-    'app3_manytomany',
+    # 'app1_onetoone',
+    # 'app2_manytoone',
+    # 'app3_manytomany',
+    'app4_examples',
 ]
 
 MIDDLEWARE = [
