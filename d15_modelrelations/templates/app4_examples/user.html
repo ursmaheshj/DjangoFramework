@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Users data</h1>
+    <div><button><a href="{% url "home" %}">Home</a></button></div>
+   <br>
+<div>
+    <h4>All Users</h4>
+    <table border='solid'>
+        <tr>
+            <th>Username</th>
+        </tr>
+        {% for data in users %}
+        <tr>
+            <td>{{data.username}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div>
+    <h4>Users starts with "m"</h4>
+    <table border='solid'>
+        <tr>
+            <th>Username</th>
+        </tr>
+        {% for data in userswithm %}
+        <tr>
+            <td>{{data.username}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div>
+    <h4>Users published page on 12/6/2024 </h4>
+    <table border='solid'>
+        <tr>
+            <th>Username</th>
+        </tr>
+        {% for data in userson12 %}
+        <tr>
+            <td>{{data.username}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div>
+    <h4>Users published Post in Python </h4>
+    <table border='solid'>
+        <tr>
+            <th>Username</th>
+        </tr>
+        {% for data in usersinpython %}
+        <tr>
+            <td>{{data.username}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div>
+    <h4>Users sung song of 4 min </h4>
+    <table border='solid'>
+        <tr>
+            <th>Username</th>
+        </tr>
+        {% for data in users4min %}
+        <tr>
+            <td>{{data.username}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+</body>
+</html>

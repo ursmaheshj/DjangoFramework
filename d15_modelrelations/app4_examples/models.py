@@ -17,7 +17,7 @@ class Page(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=50)
     publish = models.DateField()
-    publish_in = models.OneToOneField(Page,models.CASCADE)
+    publish_in = models.ForeignKey(Page,on_delete=models.CASCADE)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     def __str__(self):
         return self.title

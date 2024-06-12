@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Relations</title>
+</head>
+<body>
+    <div class='container'>
+        <h3>Model Relationship examples</h3>
+        <div>
+            Users detail
+            <button><a href="{% url "user" %}">User</a></button>
+        </div> <br>
+        <div>
+            One to One Relationship 
+            <button><a href="{% url "page" %}">Page</a></button>
+        </div> <br>
+        <div>
+            Many to One Relationship 
+            <button><a href="{% url "post" %}">Post</a></button>
+        </div> <br>
+        <div>
+            Many to Many Relationship 
+            <button><a href="{% url "song" %}">Song</a></button>
+        </div>
+
+    </div>
+    
+</body>
+</html>
