@@ -8,5 +8,67 @@
 <body>
     <h1>Many to One</h1>
     <div><button><a href="{% url "home" %}">Home</a></button></div>
+
+    <div>
+        <h4>All Posts</h4>
+        <table border='solid'>
+            <tr>
+                <th>title</th>
+                <th>Publish</th>
+                <th>Publish in</th>
+                <th>Published By</th>
+            </tr>
+            {% for data in posts %}
+            <tr>
+                <td>{{data.title}}</td>
+                <td>{{data.publish}}</td>
+                <td>{{data.publish_in}}</td>
+                <td>{{data.user}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div>
+        <h4>Posts written by mahesh</h4>
+        <table border='solid'>
+            <tr>
+                <th>title</th>
+                <th>Publish</th>
+                <th>Publish in</th>
+                <th>Published By</th>
+            </tr>
+            {% for data in postsbymahesh %}
+            <tr>
+                <td>{{data.title}}</td>
+                <td>{{data.publish}}</td>
+                <td>{{data.publish_in}}</td>
+                <td>{{data.user}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div>
+        <h4>Posts published in Pages which are created by Vinay</h4>
+        <table border='solid'>
+            <tr>
+                <th>title</th>
+                <th>Publish</th>
+                <th>Publish in</th>
+                <th>Published By</th>
+            </tr>
+            {% for data in postsofpagecreatebyvinay %}
+            <tr>
+                <td>{{data.title}}</td>
+                <td>{{data.publish}}</td>
+                <td>{{data.publish_in}}</td>
+                <td>{{data.user}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
 </body>
 </html>

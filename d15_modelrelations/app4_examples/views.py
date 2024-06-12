@@ -34,7 +34,24 @@ def page(request):
     return render(request,'app4_examples/page.html',context)
 
 def post(request):
-    return render(request,'app4_examples/post.html')
+    posts = Post.objects.all()
+    postsbymahesh = Post.objects.filter(user__username__exact = 'mahesh')
+    postsofpagecreatebyvinay = Post.objects.filter(publish_in__user__username__exact = 'vinay')
+    # print(postsofpagecreatebyvinay.query)
+    context = {
+        'posts':posts,
+        'postsbymahesh':postsbymahesh,
+        'postsofpagecreatebyvinay':postsofpagecreatebyvinay,
+    }
+    return render(request,'app4_examples/post.html',context)
 
 def song(request):
-    return render(request,'app4_examples/song.html')
+    songs = Song.objects.all()
+    songsbymaheshvinay = Song.objects.filter(user__username__in = ['mahesh','vinay']).distinct()
+    songsbyuserpostpublishinpython = Song.objects.filter(user__post__publish_in__pagename = 'Python').distinct()
+    context = {
+        'songs':songs,
+        'songsbymaheshvinay':songsbymaheshvinay,
+        'songsbyuserpostpublishinpython':songsbyuserpostpublishinpython,
+    }
+    return render(request,'app4_examples/song.html',context)

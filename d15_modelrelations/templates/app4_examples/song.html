@@ -8,5 +8,60 @@
 <body>
     <h1>Many to Many</h1>
     <div><button><a href="{% url "home" %}">Home</a></button></div>
+
+    <div>
+        <h4>All Songs</h4>
+        <table border='solid'>
+            <tr>
+                <th>Name</th>
+                <th>Duration</th>
+                <th>Singer</th>
+            </tr>
+            {% for data in songs %}
+            <tr>
+                <td>{{data.name}}</td>
+                <td>{{data.duration}}</td>
+                <td>{{data.sung_by}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div>
+        <h4>Song by mahesh and vinay</h4>
+        <table border='solid'>
+            <tr>
+                <th>Name</th>
+                <th>Duration</th>
+                <th>Singer</th>
+            </tr>
+            {% for data in songsbymaheshvinay %}
+            <tr>
+                <td>{{data.name}}</td>
+                <td>{{data.duration}}</td>
+                <td>{{data.sung_by}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div>
+        <h4>Song sing by user who also published post in Python</h4>
+        <table border='solid'>
+            <tr>
+                <th>Name</th>
+                <th>Duration</th>
+                <th>Singer</th>
+            </tr>
+            {% for data in songsbyuserpostpublishinpython %}
+            <tr>
+                <td>{{data.name}}</td>
+                <td>{{data.duration}}</td>
+                <td>{{data.sung_by}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
 </body>
 </html>
