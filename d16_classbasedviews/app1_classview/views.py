@@ -11,3 +11,8 @@ class Demo(View):
 class DemoChild(Demo):
     # it will inherit the get method from parent class Demo
     pass 
+
+class Demotemplate(View):
+    def get(self,request):
+        context = {'name':'Ramesh'}
+        return render(request,'app1/demotemplate.html',context)
