@@ -8,3 +8,6 @@ class Demo(View):
     def get(self,request):
         return HttpResponse(f'<h2>Class Based View | name:{self.name}</h2>')
     
+class DemoChild(Demo):
+    # it will inherit the get method from parent class Demo
+    pass 
