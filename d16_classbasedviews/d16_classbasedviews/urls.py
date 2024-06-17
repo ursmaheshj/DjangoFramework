@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app1_classview.views import Demo, DemoChild, Demotemplate, ContactView
+from app1_classview.views import Demo, DemoChild, Demotemplate, ContactView, NewsChannel    
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +25,6 @@ urlpatterns = [
     path('demochild/', DemoChild.as_view(),name='demochild'),
     path('demotemplate/', Demotemplate.as_view(),name='demotemplate'),
     path('contact/', ContactView.as_view(),name='contact'),
+    # path('news/', NewsChannel.as_view(template_name='app1/newschannel1.html'),name='news'),
+    path('news/', NewsChannel.as_view(template_name='app1/newschannel2.html'),name='news'),
 ]

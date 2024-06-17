@@ -30,3 +30,8 @@ class ContactView(View):
         else: 
             data = 'Invalid data'
         return render(request,'app1/contact.html',{'form':self.form,'data':data})
+    
+class NewsChannel(View):
+    template_name = ''
+    def get(self,request):
+        return render(request,self.template_name)
