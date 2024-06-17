@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
+from .forms import ContactForm
 
 # Create your views here.
 class Demo(View):         
@@ -16,3 +17,16 @@ class Demotemplate(View):
     def get(self,request):
         context = {'name':'Ramesh'}
         return render(request,'app1/demotemplate.html',context)
+    
+class ContactView(View):
+    form = ContactForm()
+    def get(self,request):
+        return render(request,'app1/contact.html',{'form':self.form})
+    
+    def post(self,request):
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data['name']
+        else: 
+            data = 'Invalid data'
+        return render(request,'app1/contact.html',{'form':self.form,'data':data})

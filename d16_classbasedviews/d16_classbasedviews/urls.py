@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app1_classview.views import Demo, DemoChild, Demotemplate
+from app1_classview.views import Demo, DemoChild, Demotemplate, ContactView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +24,5 @@ urlpatterns = [
     path('demo/', Demo.as_view(name='RAM'),name='demo'), # we can pass name as argument to as_view() method
     path('demochild/', DemoChild.as_view(),name='demochild'),
     path('demotemplate/', Demotemplate.as_view(),name='demotemplate'),
+    path('contact/', ContactView.as_view(),name='contact'),
 ]
