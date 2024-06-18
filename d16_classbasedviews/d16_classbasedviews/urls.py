@@ -17,8 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app1_classview.views import Demo, DemoChild, Demotemplate, ContactView, NewsChannel    
-from django.views.generic.base import TemplateView
-
+# from django.views.generic.base import TemplateView
+from app2_templateview.views import MyTemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,6 +31,6 @@ urlpatterns = [
     # path('news/', NewsChannel.as_view(template_name='app1/newschannel1.html'),name='news'),
     path('news/', NewsChannel.as_view(template_name='app1/newschannel2.html'),name='news'),
     #-----------------------app2 TEMPLATEVIEW URLS-----------------------
-    path('templateview/', TemplateView.as_view(template_name='app2/home.html'),name='templateview'),
-
+    # path('templateview/', TemplateView.as_view(template_name='app2/home.html'),name='templateview'),
+    path('mytemplateview/', MyTemplateView.as_view(),name='mytemplateview'),
 ]
