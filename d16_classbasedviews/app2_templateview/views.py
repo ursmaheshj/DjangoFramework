@@ -9,6 +9,10 @@ class MyTemplateView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["name"] = 'Ram'
         context["city"] = 'Ayodhya'
+        try:
+            context['class'] = kwargs['cl']  #getting kwargs provided in url and adding to context
+        except:
+            pass
         # context = {        #Using dictionary for context but it will effect extra_context
         #     'name':'Ram',
         #     'city':'Ayodhya',

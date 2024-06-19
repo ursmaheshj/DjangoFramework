@@ -34,4 +34,5 @@ urlpatterns = [
     path('templateview/', TemplateView.as_view(template_name='app2/home.html'),name='templateview'),
     path('mytemplateview/', MyTemplateView.as_view(),name='mytemplateview'),
     path('mytemplateviewextra/', MyTemplateView.as_view(extra_context={'wife':'Sita'}),name='mytemplateviewextra'),
+    path('mytemplateviewextrakwargs/<int:cl>', MyTemplateView.as_view(extra_context={'wife':'Sita'}),name='mytemplateviewextrakwargs'),
 ]
