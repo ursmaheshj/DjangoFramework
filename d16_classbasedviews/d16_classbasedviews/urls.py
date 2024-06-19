@@ -33,4 +33,5 @@ urlpatterns = [
     #-----------------------app2 TEMPLATEVIEW URLS-----------------------
     path('templateview/', TemplateView.as_view(template_name='app2/home.html'),name='templateview'),
     path('mytemplateview/', MyTemplateView.as_view(),name='mytemplateview'),
+    path('mytemplateviewextra/', MyTemplateView.as_view(extra_context={'wife':'Sita'}),name='mytemplateviewextra'),
 ]

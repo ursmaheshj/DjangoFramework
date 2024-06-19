@@ -7,12 +7,12 @@ class MyTemplateView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context["name"] = 'Ram'
-        # context["city"] = 'Ayodhya'
-        context = {        #Using dictionary for context
-            'name':'Ram',
-            'city':'Ayodhya'
-        }
+        context["name"] = 'Ram'
+        context["city"] = 'Ayodhya'
+        # context = {        #Using dictionary for context but it will effect extra_context
+        #     'name':'Ram',
+        #     'city':'Ayodhya',
+        # }
         return context
     
 
