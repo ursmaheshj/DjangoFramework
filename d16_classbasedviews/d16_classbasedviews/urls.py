@@ -19,6 +19,7 @@ from django.urls import path
 from app1_classview.views import Demo, DemoChild, Demotemplate, ContactView, NewsChannel    
 from django.views.generic.base import TemplateView
 from app2_templateview.views import MyTemplateView
+from app3_redirectview import views as redirectviews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -37,4 +38,9 @@ urlpatterns = [
     path('mytemplateview/', MyTemplateView.as_view(),name='mytemplateview'),
     path('mytemplateviewextra/', MyTemplateView.as_view(extra_context={'wife':'Sita'}),name='mytemplateviewextra'),
     path('mytemplateviewextrakwargs/<int:cl>', MyTemplateView.as_view(extra_context={'wife':'Sita'}),name='mytemplateviewextrakwargs'),
+
+    #-----------------------app3 REDIRECTVIEW URLS-----------------------
+    path('rdtemplateindex/',redirectviews.TemplateView.as_view(template_name="app3/index.html"),name="rdtemplateindex"),
+    path('rdtemplatehome/',redirectviews.RedirectView.as_view(url="/rdtemplateindex"),name="rdtemplatehome"),
+
 ]
