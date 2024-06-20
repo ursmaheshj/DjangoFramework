@@ -43,6 +43,8 @@ urlpatterns = [
     path('rdtemplateindex/',redirectviews.TemplateView.as_view(template_name="app3/index.html"),name="rdtemplateindex"),
     path('ursmaheshj/',redirectviews.RedirectView.as_view(url="https://ursmaheshj.medium.com/about"),name="ursmaheshj"),  #redirecting to external site
     path('rdtemplatehome/',redirectviews.RedirectView.as_view(url="/rdtemplateindex"),name="rdtemplatehome"),   
-    path('rdtemplatepattern/',redirectviews.RedirectView.as_view(pattern_name='ursmaheshj'),name="rdtemplatepattern"),   #redirect url to another url with same name as pattern name   
+    path('rdtemplatepattern/',redirectviews.RedirectView.as_view(pattern_name='ursmaheshj'),name="rdtemplatepattern"),   #redirect url to another url with pattern_name=name  
+    path('mindex/<int:pk>',redirectviews.TemplateView.as_view(template_name="app3/index.html"),name="mindex"),   
+    path('myredirectview/<int:pk>',redirectviews.MyRedirectView.as_view(),name="myredirectview"),   
 
 ]
