@@ -41,6 +41,7 @@ urlpatterns = [
 
     #-----------------------app3 REDIRECTVIEW URLS-----------------------
     path('rdtemplateindex/',redirectviews.TemplateView.as_view(template_name="app3/index.html"),name="rdtemplateindex"),
-    path('rdtemplatehome/',redirectviews.RedirectView.as_view(url="/rdtemplateindex"),name="rdtemplatehome"),
+    path('ursmaheshj/',redirectviews.RedirectView.as_view(url="https://ursmaheshj.medium.com/about"),name="ursmaheshj"),  #redirecting to external site
+    path('rdtemplatehome/',redirectviews.RedirectView.as_view(url="/rdtemplateindex"),name="rdtemplatehome"),   
 
 ]
