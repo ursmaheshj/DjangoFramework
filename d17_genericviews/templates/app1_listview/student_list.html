@@ -7,15 +7,32 @@
 </head>
 <body>
     <h2>Student List</h2>
-    <table>
-        {% for student in student_list %}
-        <ul>
-            {{student.id}}
-            {{student.name}}
-            {{student.roll}}
-            {{student.course}}
-        </ul>
-        {% endfor %}
-    </table>
+    <div>
+        <table>
+            {% for student in student_list %}
+            <ul>
+                {{student.id}}
+                {{student.name}}
+                {{student.roll}}
+                {{student.course}}
+            </ul>
+            {% endfor %}
+        </table>
+    </div>
+    {% if  freshers %}
+    <div>
+        <h2>Freshers</h2>
+        <table>
+            {% for student in freshers %}
+            <ul>
+                {{student.id}}
+                {{student.name}}
+                {{student.roll}}
+                {{student.course}}
+            </ul>
+            {% endfor %}
+        </table>
+    </div>
+    {% endif %}
 </body>
 </html>

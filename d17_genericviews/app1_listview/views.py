@@ -15,3 +15,8 @@ class StudentListView(ListView):
     def get_queryset(self) -> QuerySet[Any]:
         return Student.objects.filter(course='love')  #it will return only those students with course as love
     
+    def get_context_data(self, **kwargs) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context["freshers"] = Student.objects.all().order_by('name')
+        return context
+    
