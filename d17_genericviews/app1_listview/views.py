@@ -27,5 +27,14 @@ class StudentListView(ListView):
                 template_name = f'app1_listview/{self.request.COOKIES['user']}.html'
         except Exception as e:
             print(e)
-        
         return [template_name]
+    
+    # def get_template_names(self) -> list[str]:    #return template based on the user type 
+    #     if self.request.user.is_superuser:
+    #         template_name = 'app1_listview/superuser.html'
+    #     elif self.request.user.is_staff:
+    #         template_name = 'app1_listview/staff.html'
+    #     else:
+    #         template_name = self.template_name
+    #     return [template_name]
+    
