@@ -19,7 +19,7 @@ from django.urls import path
 from app1_listview.views import StudentListView
 from app2_detailview.views import StudentDetailView
 from app3_formview.views import StudentFormView,ThankYouTemplateView
-from app4_createview.views import StudentCreateView
+from app4_createview.views import StudentCreateView,StudentCreateDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,4 +32,5 @@ urlpatterns = [
     path('thankyou/', ThankYouTemplateView.as_view(),name='thankyou'),
     #CreateView URLs
     path('createview/', StudentCreateView.as_view(),name='createview'),
+    path('createdetailview/<int:pk>', StudentCreateDetailView.as_view(),name='createdetailview'),
 ]
