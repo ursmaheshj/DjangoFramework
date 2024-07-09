@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from app1_listview.views import StudentListView
 from app2_detailview.views import StudentDetailView
+from app3_formview.views import StudentFormView,ThankYouTemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +26,7 @@ urlpatterns = [
     path('studentlist/', StudentListView.as_view(),name='studentlist'),
     #DetailView URLs
     path('studentdetail/<int:pk>', StudentDetailView.as_view(),name='studentdetail'),
+    #FormView URLs
+    path('studentform/', StudentFormView.as_view(),name='studentform'),
+    path('thankyou/', ThankYouTemplateView.as_view(),name='thankyou'),
 ]
