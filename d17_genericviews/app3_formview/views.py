@@ -9,6 +9,7 @@ class StudentFormView(FormView):
     form_class = StudentForm
     template_name = 'app3_formview/studentform.html'
     success_url = '/thankyou/'
+    initial = {'name':'Nikita','roll':45}
     def form_valid(self, form) -> HttpResponse:
         print(form)
         # return super().form_valid(form)
