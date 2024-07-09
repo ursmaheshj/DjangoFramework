@@ -13,5 +13,20 @@
         Roll: {{dstudent.roll}}<br>
         Course: {{dstudent.course}}
     </div>
+    {% if all_student %}
+    <div>
+        <h2>All Student list (added using context)</h2>
+        <table>
+            {% for student in all_student %}
+            <ul>
+                {{student.id}}
+                {{student.name}}
+                {{student.roll}}
+                {{student.course}}
+            </ul>
+            {% endfor %}
+        </table>
+    </div>
+    {% endif %}
 </body>
 </html>
