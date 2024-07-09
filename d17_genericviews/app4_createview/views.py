@@ -10,7 +10,10 @@ class StudentCreateView(CreateView):
     model = Cstudent
     fields = ['name','roll','course']
     # success_url = '/createview/'
-    #to add class to form fields
+    
+    #1to add class to form fields
+    # form_class = 'FormClass created in forms.py'   #We can add our attrs and class in forms.py
+    #2to add class to form fields
     def get_form(self, form_class: type[BaseModelForm] | None = ...) -> BaseModelForm:
         form = super().get_form()
         form.fields['name'].widget = forms.TextInput(attrs={'class':'myClass'})
