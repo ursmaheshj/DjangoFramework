@@ -11,7 +11,10 @@ class StudentFormView(FormView):
     success_url = '/thankyou/'
     def form_valid(self, form) -> HttpResponse:
         print(form)
-        return super().form_valid(form)
+        # return super().form_valid(form)
+        print(form.cleaned_data())
+        return HttpResponse('Data received')
+
 
 class ThankYouTemplateView(TemplateView):
     template_name = 'app3_formview/thankyou.html'
