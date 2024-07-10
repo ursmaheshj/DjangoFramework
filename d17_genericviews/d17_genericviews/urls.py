@@ -20,6 +20,7 @@ from app1_listview.views import StudentListView
 from app2_detailview.views import StudentDetailView
 from app3_formview.views import StudentFormView,ThankYouTemplateView
 from app4_createview.views import StudentCreateView,StudentCreateDetailView
+from app5_updateview.views import StudentUpdateCreateView,StudentUpdateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,6 +35,6 @@ urlpatterns = [
     path('createview/', StudentCreateView.as_view(),name='createview'),
     path('createdetailview/<int:pk>', StudentCreateDetailView.as_view(),name='createdetailview'),
     #UpdateView URLs
-    path('updatecreateview/', StudentCreateView.as_view(),name='updatecreateview'),
-    path('updateview/<int:pk>', StudentCreateDetailView.as_view(),name='createdetailview'),
+    path('updatecreateview/', StudentUpdateCreateView.as_view(),name='updatecreateview'),
+    path('updateview/<int:pk>', StudentUpdateView.as_view(),name='updateview'),
 ]
