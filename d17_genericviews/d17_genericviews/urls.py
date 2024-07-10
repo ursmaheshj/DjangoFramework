@@ -33,4 +33,7 @@ urlpatterns = [
     #CreateView URLs
     path('createview/', StudentCreateView.as_view(),name='createview'),
     path('createdetailview/<int:pk>', StudentCreateDetailView.as_view(),name='createdetailview'),
+    #UpdateView URLs
+    path('updatecreateview/', StudentCreateView.as_view(),name='updatecreateview'),
+    path('updateview/<int:pk>', StudentCreateDetailView.as_view(),name='createdetailview'),
 ]
