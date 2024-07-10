@@ -21,6 +21,7 @@ from app2_detailview.views import StudentDetailView
 from app3_formview.views import StudentFormView,ThankYouTemplateView
 from app4_createview.views import StudentCreateView,StudentCreateDetailView
 from app5_updateview.views import StudentUpdateCreateView,StudentUpdateView
+from app6_deleteview.views import StudentDeleteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -37,4 +38,7 @@ urlpatterns = [
     #UpdateView URLs
     path('updatecreateview/', StudentUpdateCreateView.as_view(),name='updatecreateview'),
     path('updateview/<int:pk>', StudentUpdateView.as_view(),name='updateview'),
+    #DeleteView URLs
+    path('deleteview/<int:pk>', StudentDeleteView.as_view(),name='deleteview'),
+    # path('updateview/<int:pk>', StudentUpdateView.as_view(),name='updateview'),
 ]
