@@ -10,6 +10,7 @@ class StudentUpdateCreateView(CreateView):
 
 class StudentUpdateView(UpdateView):
     model = Ustudent
+    # We can also add extra attributes or class to below fields using get_form() or creating a form in forms.py 
     fields = ['name','roll','course']
     # success_url = '/thankyou/'
 
