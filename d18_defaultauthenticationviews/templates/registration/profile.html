@@ -8,5 +8,9 @@
 <body>
     <h1>My Profile</h1>
     welcome {{request.user}}
+    <form action="{% url "logout" %}" method="post">
+        {% csrf_token %}
+        <button type="submit">logout</button>
+    </form>
 </body>
 </html>
