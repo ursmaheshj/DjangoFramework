@@ -3,7 +3,7 @@ from django.http import HttpRequest
 from django.http.response import HttpResponse as HttpResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required,permission_required
 from django.utils.decorators import method_decorator
 
 # Create your views here.
@@ -14,7 +14,12 @@ from django.utils.decorators import method_decorator
 #     def dispatch(self, *args, **kwargs):
 #         return super().dispatch(*args, **kwargs)
 
-@method_decorator(login_required,name='dispatch')
+# @method_decorator(login_required,name='dispatch')
+# class Profile(TemplateView):
+#     template_name = 'registration/profile.html'
+
+decorators = [login_required,permission_required('app1_funcauthview.add_blog')]
+@method_decorator(decorators,name='dispatch')
 class Profile(TemplateView):
     template_name = 'registration/profile.html'
 
