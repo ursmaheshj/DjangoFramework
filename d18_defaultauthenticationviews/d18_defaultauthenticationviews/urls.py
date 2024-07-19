@@ -17,9 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from app1_funcauthview.views import profile
+from classauthview.views import Profile
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/profile/', profile),
+    # path('accounts/profile/', profile),   #Used with FunctionBased 
+    path('accounts/profile/',Profile.as_view())
 ]
