@@ -24,4 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     # path('accounts/profile/', profile),   #Used with FunctionBased 
-    path('accounts/profile/',login_required(Profile.as_view()))  #added login_required in URLconf
+    # path('accounts/profile/',login_required(Profile.as_view()))  #added login_required in URLconf
+    path('accounts/profile/',Profile.as_view())  #added decorator in the view class
+]
