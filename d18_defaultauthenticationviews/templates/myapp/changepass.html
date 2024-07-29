@@ -6,12 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Welcome to Dashboard</h2>
-    <form action="{% url "logout" %}" method="post">
+    <h3>Password Change Form</h3>
+    <form action="" method="post" novalidate>
         {% csrf_token %}
-        <button type="submit">logout</button>
+        {{form.as_p}}
+        <button type="submit">Login</button>
     </form>
-
-    <p><a href="{% url "changepass" %}">Change Password</a></p>
+    <a href="{% url "dashboard" %}">Dashboard</a>
 </body>
 </html>

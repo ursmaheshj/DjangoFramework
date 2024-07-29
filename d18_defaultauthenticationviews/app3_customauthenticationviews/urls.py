@@ -23,4 +23,5 @@ urlpatterns = [
  path('dashboard/',TemplateView.as_view(template_name='myapp/dashboard.html'),name='dashboard'),
  path('login/',auth_views.LoginView.as_view(template_name='myapp/login.html'),name='login'),
  path('logout/',auth_views.LogoutView.as_view(template_name='myapp/logout.html'),name='logout'),
+ path('changepass/',auth_views.PasswordChangeView.as_view(template_name='myapp/changepass.html'),name='changepass'),
 ]
