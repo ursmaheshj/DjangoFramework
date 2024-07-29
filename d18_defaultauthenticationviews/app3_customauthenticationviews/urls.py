@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.urls import path
 from django.contrib.auth import views as auth_views
+from django.views.generic import TemplateView
 
 urlpatterns = [
- path('login/',auth_views.LoginView.as_view(template_name='myapp/login.html'),name='login')
+ path('',TemplateView.as_view(template_name='myapp/home.html'),name='home'),
+ path('dashboard/',TemplateView.as_view(template_name='myapp/dashboard.html'),name='dashboard'),
+ path('login/',auth_views.LoginView.as_view(template_name='myapp/login.html'),name='login'),
 ]
