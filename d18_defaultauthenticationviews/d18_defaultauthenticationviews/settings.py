@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app1_funcauthview',
     'classauthview',
+    'app3_customauthenticationviews',
 ]
 
 MIDDLEWARE = [
