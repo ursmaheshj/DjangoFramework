@@ -1,16 +1,19 @@
 from celery import Celery
 import time
 
-app = Celery('cel_main',broker='pyamqp://')
+# app = Celery('cel_main',broker='pyamqp://')
+app = Celery('cel_main', backend='rpc://',broker='pyamqp://')
 
 @app.task
 def TaskQueue(message):
     time.sleep(10)
     print(f"TaskQueue: {message}")
+    return "TASK ADDED"
 
 @app.task
 def WriteLog(log):
     print(f"Log: {log}")
+    return "LOG WRITTEN"
 
 
 
