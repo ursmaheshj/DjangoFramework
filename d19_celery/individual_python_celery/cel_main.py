@@ -4,13 +4,16 @@ import time
 # app = Celery('cel_main',broker='pyamqp://')
 app = Celery('cel_main', backend='rpc://',broker='pyamqp://')
 
+app.conf.task_default_queue = 'first'
+
 @app.task
 def TaskQueue(message):
-    time.sleep(10)
+    # time.sleep(10)
     print(f"TaskQueue: {message}")
     return "TASK ADDED"
 
-@app.task
+# @app.task
+@app.task(queue='second') #sends task to menioned queue name
 def WriteLog(log):
     print(f"Log: {log}")
     return "LOG WRITTEN"
