@@ -11,11 +11,12 @@ def about(request):
     return render(request,'app1_bank/about.html')
 
 def getBalance(request):
-    # task_id1 = add_task.delay(20,30) #enque task using delay()
-    task_id1 = sub_task.apply_async(args=(20,30)) #enque task using apply_async()
-    print(task_id1.ready())
-    print(task_id1.successful())
-    print(task_id1.failed())
+    task_id1 = add_task.delay(20,30) #enque task using delay()
+    # task_id2 = sub_task.apply_async(args=(20,30)) #enque task using apply_async()
+    # print(task_id1.ready())
+    # print(task_id1.successful())
+    # print(task_id1.failed())
+    # print(task_id1.get()) #blocks the execution until gets result from queue completion(not recommended)
     print(task_id1)
     # print(task_id2)
     return render(request,'app1_bank/balance.html',{'task_id':task_id1})
