@@ -16,12 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app1_bank.views import getBalance,home,about
+from app1_bank.views import getBalance,home,about,getResult
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', home,name='home'),
     path('about/', about,name='about'),
     path('balance/', getBalance,name='balance'),
+    path('result/<str:task_id>', getResult,name='result'),
 
 ]

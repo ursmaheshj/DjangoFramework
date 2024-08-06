@@ -26,3 +26,9 @@ def add_task(x,y):
     print("executing add task")
     sleep(10)
     return x+y
+
+
+# command to run docker container with redis client
+# docker run -d --name redis-celery(container-name) -p 6379:6379 redis
+# command to connect with redis docker client and run redis commands
+# docker exec -it redis-celery sh > redis-cli > keys *

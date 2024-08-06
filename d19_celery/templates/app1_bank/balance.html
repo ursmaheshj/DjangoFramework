@@ -16,5 +16,8 @@
     <p>
         Balance Remaining: 500 RS
     </p>
+    {% if task_id %}
+        <a href="{% url "result" task_id %}">{{task_id}}</a>
+    {% endif %}
 </body>
 </html>
