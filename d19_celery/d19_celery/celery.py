@@ -23,5 +23,6 @@ app.autodiscover_tasks()
 
 @app.task
 def add_task(x,y):
+    print("executing add task")
     sleep(10)
     return x+y
