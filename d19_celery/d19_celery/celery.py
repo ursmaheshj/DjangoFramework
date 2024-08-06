@@ -21,7 +21,8 @@ app.autodiscover_tasks()
 # def debug_task(self):
 #     print(f'Request: {self.request!r}')
 
-@app.task
+# @app.task
+@app.task(name="MyTaskName")
 def add_task(x,y):
     print("executing add task")
     sleep(10)
