@@ -133,4 +133,5 @@ CELERY_BROKER_URL = "redis://127.0.0.1:6379"
 # CELERY_RESULT_BACKEND = "redis://127.0.0.1:6379" #Redis as a backend
 CELERY_RESULT_BACKEND = "django-db" #DjangoDB as a backend
 CELERY_TIMEZONE = "Asia/Kolkata"
+CELERY_RESULT_EXTENDED = True #Enables extended task result attributes to be written to backend
 
