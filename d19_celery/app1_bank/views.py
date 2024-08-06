@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from d19_celery.celery import add_task
 from app1_bank.tasks import sub_task
+from app1_bank.tasks import sub_task
 
 # Create your views here.
 def home(request):
