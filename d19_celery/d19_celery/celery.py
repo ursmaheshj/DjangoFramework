@@ -50,3 +50,5 @@ app.conf.beat_schedule = {
 # docker run -d --name redis-celery(container-name) -p 6379:6379 redis
 ### command to connect with redis docker client and run redis commands
 # docker exec -it redis-celery sh > redis-cli > keys *
+### command to run docker container with rabbitMQ client
+# docker run -p 15672:15672 -p 5672:5672 --restart=no -d rabbitmq:management
