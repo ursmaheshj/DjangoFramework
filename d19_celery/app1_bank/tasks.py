@@ -11,3 +11,8 @@ def sub_task(x,y):
 def clear_session_cache(id):
     print(f'Session cache cleared:{id}')
     return id
+
+@shared_task
+def clear_redis_cache(id):
+    print(f'Redis cache cleared:{id}')
+    return id

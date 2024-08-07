@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app1_bank',
     'django_celery_results',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
@@ -108,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -134,6 +135,7 @@ CELERY_BROKER_URL = "redis://127.0.0.1:6379"
 CELERY_RESULT_BACKEND = "django-db" #DjangoDB as a backend
 CELERY_TIMEZONE = "Asia/Kolkata"
 CELERY_RESULT_EXTENDED = True #Enables extended task result attributes to be written to backend
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 ##Scheduling tasks using celery beat configuration
 # CELERY_BEAT_SCHEDULE = {
 #     'SESSION_CLEAR_EVERY10SECFROMSETTINGS':{
