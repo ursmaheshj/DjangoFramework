@@ -1,6 +1,8 @@
 import os
 from time import sleep
 from celery import Celery
+from datetime import timedelta
+from celery.schedules import crontab,solar
 
 # Set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'd19_celery.settings')
@@ -31,7 +33,10 @@ def add_task(x,y):
 app.conf.beat_schedule = {
     'SESSION_CLEAR_EVERY10SEC':{
         'task':'app1_bank.tasks.clear_session_cache',
-        'schedule':20,
+        # 'schedule':20,   
+        # 'schedule':solar('sunset',-37.65,144.546), #Scheduling using solar/based on sunset,sunrise,longitude,altitude  
+        # 'schedule':crontab(minute='*/1'),   #scheduling using crontab
+        'schedule':timedelta(seconds=30),  #scheduling using timedelta
         'args':('101',),
     },
     # more scheduled tasks can be added here
