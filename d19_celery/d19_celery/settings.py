@@ -130,7 +130,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ######### Celery Settings
 
-CELERY_BROKER_URL = "redis://127.0.0.1:6379"
+# CELERY_BROKER_URL = "redis://127.0.0.1:6379"  #redis 
+CELERY_BROKER_URL = "pyamqp://"  #RabbitMQ
 # CELERY_RESULT_BACKEND = "redis://127.0.0.1:6379" #Redis as a backend
 CELERY_RESULT_BACKEND = "django-db" #DjangoDB as a backend
 CELERY_TIMEZONE = "Asia/Kolkata"
