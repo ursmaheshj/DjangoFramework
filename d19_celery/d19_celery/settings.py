@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'app1_bank',
+    'app1_bank',
     'django_celery_results',
 ]
 
@@ -127,11 +127,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-# Celery Settings
+######### Celery Settings
 
 CELERY_BROKER_URL = "redis://127.0.0.1:6379"
 # CELERY_RESULT_BACKEND = "redis://127.0.0.1:6379" #Redis as a backend
 CELERY_RESULT_BACKEND = "django-db" #DjangoDB as a backend
 CELERY_TIMEZONE = "Asia/Kolkata"
 CELERY_RESULT_EXTENDED = True #Enables extended task result attributes to be written to backend
-
+##Scheduling tasks using celery beat configuration
+# CELERY_BEAT_SCHEDULE = {
+#     'SESSION_CLEAR_EVERY10SECFROMSETTINGS':{
+#         'task':'app1_bank.tasks.clear_session_cache',
+#         'schedule':10,
+#         'args':('101',),
+#     },
+#     # more scheduled tasks can be added here
+# }

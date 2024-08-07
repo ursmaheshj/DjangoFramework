@@ -28,8 +28,20 @@ def add_task(x,y):
     sleep(10)
     return x+y
 
+app.conf.beat_schedule = {
+    'SESSION_CLEAR_EVERY10SEC':{
+        'task':'app1_bank.tasks.clear_session_cache',
+        'schedule':20,
+        'args':('101',),
+    },
+    # more scheduled tasks can be added here
+}
 
-# command to run docker container with redis client
+### Command to run Celery worker 
+# celery -A app_name worker -l info -P solo
+### Command to run celery beat
+# celery -A app_name beat -l info
+### command to run docker container with redis client
 # docker run -d --name redis-celery(container-name) -p 6379:6379 redis
-# command to connect with redis docker client and run redis commands
+### command to connect with redis docker client and run redis commands
 # docker exec -it redis-celery sh > redis-cli > keys *
