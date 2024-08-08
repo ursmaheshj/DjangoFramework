@@ -6,7 +6,7 @@ connection = engine.connect()
 metadata = sa.MetaData()
 
 user_table = sa.Table(
-    "user",
+    "user", 
     metadata,
     sa.Column('id',sa.Integer,primary_key=True),
     sa.Column("username",sa.String),
