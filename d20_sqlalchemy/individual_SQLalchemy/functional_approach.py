@@ -1,6 +1,6 @@
 import sqlalchemy as sa
 
-engine = sa.create_engine("sqlite:///:memory:")
+engine = sa.create_engine("sqlite:///:memory:",echo=True)
 connection = engine.connect()
 
 metadata = sa.MetaData()
@@ -21,8 +21,6 @@ def select_user(username:str)->sa.engine.Result:
     query = user_table.select().where(user_table.c.username==username)
     result = connection.execute(query)
     return result.fetchall()
-def worked():
-    print("Worked")
 
 def main()->None:
     metadata.create_all(engine)
@@ -30,7 +28,6 @@ def main()->None:
     insert_user("Ram","ram@gmail.com")
     insert_user("Mahesh","mj@gmail.com")
     print(select_user("Mahesh"))
-    worked()
     connection.close()
 
 if __name__ == '__main__':
