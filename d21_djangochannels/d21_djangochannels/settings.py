@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -67,7 +68,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'd21_djangochannels.wsgi.application'
+# WSGI_APPLICATION = 'd21_djangochannels.wsgi.application'
+# ASGI_APPLICATION = 'd21_djangochannels.asgi.application'
 
 
 # Database
