@@ -11,6 +11,12 @@ class MySyncConsumer(SyncConsumer):
     def websocket_receive(self,event):
         print('---Websocket received---',event)
         print('--Message received--:',event['text'])
+        name = event['text']
+        self.send({
+            'type':'websocket.send',
+            'text':f'Hi {name}'
+        })
+        print('--Reply send--')
     def websocket_disconnect(self,event):
         print('---Websocket disconnected---',event)
         raise StopConsumer #it wont show unnecessary [took too long to shut down and was killed.] everytime
@@ -24,6 +30,12 @@ class MyAsyncConsumer(AsyncConsumer):
     async def websocket_receive(self,event):
         print('---Websocket received---',event)
         print('--Message received--:',event['text'])
+        name = event['text']
+        await self.send({
+            'type':'websocket.send',
+            'text':f'Hi {name}'
+        })
+        print('--Reply send--')
     async def websocket_disconnect(self,event):
         print('---Websocket disconnected---',event)
         raise StopConsumer
