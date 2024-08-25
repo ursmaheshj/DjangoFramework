@@ -13,7 +13,7 @@ class MySyncConsumer(SyncConsumer):
         print('---Websocket received---',event)
         print('--Message received--:',event['text'])
         # name = event['text']
-        for i in range(50):
+        for i in range(10):
             self.send({
                 'type':'websocket.send',
                 'text':str(i)
@@ -34,7 +34,7 @@ class MyAsyncConsumer(AsyncConsumer):
         print('---Websocket received---',event)
         print('--Message received--:',event['text'])
         # name = event['text']
-        for i in range(50):
+        for i in range(10):
             await self.send({
                 'type':'websocket.send',
                 'text':str(i)
