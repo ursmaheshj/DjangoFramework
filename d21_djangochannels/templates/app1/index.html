@@ -8,24 +8,31 @@
 <body>
     <h1>Count Page</h1>
 
+    <h2 id='ct1'></h2>
+    <h2 id='ct2'></h2>
+    <h2 id='ct3'></h2>
+
 <script>
-    var ws = new WebSocket('ws://127.0.0.1:8000/ws/ac/')
-    {% comment %} ws.onopen = function(event) {
+    var ws = new WebSocket('ws://127.0.0.1:8000/ws/sc/')
+    ws.onopen = function(event) {
         console.log('webSocket connection open..',event)
         ws.send('Hi Mj')
     }
     ws.onmessage = function(event){
         console.log('Message received..',event)
+        document.getElementById('ct1').innerText = event.data
+        document.getElementById('ct2').innerText = JSON.parse(event.data)
+        document.getElementById('ct3').innerText = JSON.parse(event.data).count
     }
     ws.onerror = function(event){
         console.log('Error occured..',event)
     }
     ws.onclose = function(event){
         console.log('Connection closed..',event)
-    } {% endcomment %}
+    } 
 
     //Using eventListener with webSocket
-    ws.addEventListener('open',(event) => {
+    {% comment %} ws.addEventListener('open',(event) => {
         console.log('webSocket connection open..',event)
         ws.send('Hi Mj')
     })
@@ -37,7 +44,8 @@
     })
     ws.addEventListener('close',(event) => {
         console.log('Connection closed..',event)
-    })
+    }) {% endcomment %}
+    
 </script>
 </body>
 </html>
