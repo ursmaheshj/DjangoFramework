@@ -21,6 +21,7 @@ from app2.views import login_user,profile,logout_user,changepass,changepassold,u
 from app3.views import dashboard
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',dashboard,name='dashboard'),
     path('register/', sign_up,name='signup'),
     path('login/', login_user,name='login'),
     path('profile/', profile,name='profile'),
@@ -28,5 +29,4 @@ urlpatterns = [
     path('changepassold/', changepassold,name='changepassold'),
     path('changepass/', changepass,name='changepass'),
     path('userdetail/<int:id>', userdetail,name='userdetail'),
-    path('dashboard/',dashboard,name='dashboard'),
 ]
