@@ -1,0 +1,33 @@
+{% extends "genericcbv/base.html" %}
+
+{% block content %}
+
+<div class="container">
+        
+        <!-- 2. Simple Form with Center Alignment -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-6">
+                <div class="card shadow-sm p-4">
+                    <h3 class="text-center mb-4">Add New User</h3>
+                    <form target='' method='post' novalidate>
+                        {% csrf_token %}
+                        {% for field in form %}
+                        
+                         <div class="mb-3">
+                            {{field.label_tag}}
+                            {{field}}
+                        </div>
+                            {% for error in field.errors %}
+                                <span class='errorlist'>{{error}}</span>
+                            {% endfor %}
+                        {% endfor %}
+                        {{studentform.non_field_errors}}
+                        <input class="btn btn-primary" type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+<div>
+
+{% endblock content %}

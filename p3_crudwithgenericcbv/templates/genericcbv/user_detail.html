@@ -1,0 +1,24 @@
+{% extends "genericcbv/base.html" %}
+
+{% block content %}
+
+<div class="container">
+        
+    <h3 class="text-center mb-4">User Detail</h3>   
+    
+        <div class="card justify-content-center align-items-center " >
+            <div class="card-body text-left">
+            <h5 class="card-title">{{user.name}}</h5>
+            <p class="card-text">
+                <strong>Email:</strong> {{user.email}}<br>
+                <strong>Age:</strong> {{user.age}}<br>
+                <strong>Password:</strong> {{user.password}}
+            </p>
+            <a href="{% url "updateuser" user.id %}"><button class="btn btn-sm btn-primary">Edit</button></a>
+            </div>
+        </div>
+        </div>   
+        
+<div>
+
+{% endblock content %}
